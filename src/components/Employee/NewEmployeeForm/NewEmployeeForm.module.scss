@@ -1,10 +1,8 @@
 @import "../../../style/App.module.scss";
 
-.employeeList {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.newEmployeeForm {
   border: 1px solid black;
   width: 100%;
+  @include section-spacing;
   @include card;
 }

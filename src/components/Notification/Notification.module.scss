@@ -1,0 +1,23 @@
+@import "../../style/App.module.scss";
+
+.notification {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include section-spacing;
+  border-radius: $border-radius;
+  padding: 8px;
+  width: 50%;
+}
+
+.success {
+  background-color: $success;
+  color: $secondary-text-color;
+  border: 1px $success solid;
+}
+
+.error {
+  background-color: $error;
+  color: $secondary-text-color;
+  border: 1px $error solid;
+}
