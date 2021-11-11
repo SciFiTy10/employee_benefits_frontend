@@ -1,8 +1,10 @@
 @import "../../../style/App.module.scss";
 
 .header {
-  background-color: $primary-color;
+  background-image: linear-gradient(to right, #ed2024 0, #ff8f1c 100%);
   min-height: 10vh;
+  position: fixed;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;

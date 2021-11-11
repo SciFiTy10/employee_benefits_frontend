@@ -1,12 +1,11 @@
 import Header from "./components/Layout/Header/Header";
-import Footer from "./components/Layout/Footer/Footer";
-import EmployeeList from "./components/Employee/EmployeeList/EmployeeList";
+import Main from "./components/Layout/Main/Main";
+import appStyles from "./style/App.module.scss";
 const App = () => {
   return (
-    <div className="App">
+    <div className={appStyles.app}>
       <Header />
-      <EmployeeList />
-      <Footer />
+      <Main />
     </div>
   );
 };

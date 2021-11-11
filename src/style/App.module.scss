@@ -1,5 +1,11 @@
+.app {
+  width: 100vw;
+  height: 100vh;
+}
+
 //app background color
-$primary-color: #282c34;
+$primary-color: linear-gradient(to right, #ed2024 0, #ff8f1c 100%);
+$secondary-color: #323e48;
 //text colors
 $primary-text-color: black;
 $secondary-text-color: white;
