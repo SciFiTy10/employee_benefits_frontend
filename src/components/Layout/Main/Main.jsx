@@ -1,11 +1,11 @@
 import React from "react";
 import mainStyles from "./Main.module.scss";
-import EmployeeList from "../../Employee/EmployeeList/EmployeeList";
+import Content from "./Content/Content";
 const Main = () => {
   return (
-    <section className={mainStyles.main}>
-      <EmployeeList />
-    </section>
+    <div className={mainStyles.main}>
+      <Content />
+    </div>
   );
 };
 

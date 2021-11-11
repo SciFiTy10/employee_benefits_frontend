@@ -2,12 +2,11 @@
 
 .header {
   background-image: linear-gradient(to right, #ed2024 0, #ff8f1c 100%);
-  min-height: 10vh;
+  min-height: 10%;
   position: fixed;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: $secondary-text-color;
 }
