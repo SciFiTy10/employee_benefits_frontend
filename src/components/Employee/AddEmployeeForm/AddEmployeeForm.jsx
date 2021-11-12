@@ -16,7 +16,11 @@ const AddEmployeeForm = () => {
           <Input labelText="Last Name" placeholder="Johnson" type="text" />
         </section>
         <section className={addEmployeeFormStyles.contactSection}>
-          <Input labelText="Email" placeholder="pat@gmail.com" type="email" />
+          <Input
+            labelText="Email"
+            placeholder="pjohnson@gmail.com"
+            type="email"
+          />
           <Input
             labelText="Phone Number"
             placeholder="(555) 555-5555"
@@ -25,10 +29,11 @@ const AddEmployeeForm = () => {
         </section>
         <section className={addEmployeeFormStyles.addressSection}>
           <Input
-            labelText="Street Address"
+            labelText="Address Line 1"
             placeholder="123 Fourth Street"
             type="text"
           />
+          <Input labelText="Address Line 2" placeholder="" type="text" />
           <Input labelText="City" placeholder="Schaumburg" type="text" />
           <Input labelText="State" placeholder="Illinois" type="text" />
           <Input labelText="Zip" placeholder="60014" type="number" />
