@@ -1,21 +1,21 @@
 import React from "react";
-import newEmployeeFormStyles from "./NewEmployeeForm.module.scss";
+import addEmployeeFormStyles from "./AddEmployeeForm.module.scss";
 import Input from "../../UI/Input/Input";
 import Button from "../../UI/Button/Button";
-import NewDependent from "../NewDependent/NewDependent";
+import AddDependent from "../../Dependent/AddDependent/AddDependent";
 
-const NewEmployeeForm = () => {
+const AddEmployeeForm = () => {
   return (
-    <div className={newEmployeeFormStyles.newEmployeeForm}>
+    <div className={addEmployeeFormStyles.AddEmployeeForm}>
       <section>
         <h1>Add A New Employee</h1>
       </section>
       <form action="#">
-        <section className={newEmployeeFormStyles.nameSection}>
+        <section className={addEmployeeFormStyles.nameSection}>
           <Input labelText="First Name" placeholder="Pat" type="text" />
           <Input labelText="Last Name" placeholder="Johnson" type="text" />
         </section>
-        <section className={newEmployeeFormStyles.contactSection}>
+        <section className={addEmployeeFormStyles.contactSection}>
           <Input labelText="Email" placeholder="pat@gmail.com" type="email" />
           <Input
             labelText="Phone Number"
@@ -23,7 +23,7 @@ const NewEmployeeForm = () => {
             type="number"
           />
         </section>
-        <section className={newEmployeeFormStyles.addressSection}>
+        <section className={addEmployeeFormStyles.addressSection}>
           <Input
             labelText="Street Address"
             placeholder="123 Fourth Street"
@@ -33,14 +33,14 @@ const NewEmployeeForm = () => {
           <Input labelText="State" placeholder="Illinois" type="text" />
           <Input labelText="Zip" placeholder="60014" type="number" />
         </section>
-        <section className={newEmployeeFormStyles.addSection}>
+        <section className={addEmployeeFormStyles.addSection}>
           <Button text="Add Dependent" ariaLabel="add dependent button" />
           <Input labelText="" type="submit" value="Add Employee" />
         </section>
-        <NewDependent />
+        <AddDependent />
       </form>
     </div>
   );
 };
 
-export default NewEmployeeForm;
+export default AddEmployeeForm;

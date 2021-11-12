@@ -7,8 +7,8 @@ const Select = () => {
 
       <select name="dependent-type" id="dependent-select">
         <option value="">--Please choose an option--</option>
-        <option value="spouse">Spouse</option>
-        <option value="child">Child</option>
+        <option value="Spouse">Spouse</option>
+        <option value="Child">Child</option>
       </select>
     </>
   );

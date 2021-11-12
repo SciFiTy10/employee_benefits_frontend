@@ -1,19 +1,19 @@
 import React from "react";
-import newDependentStyles from "./NewDependent.module.scss";
+import addDependentStyles from "./AddDependent.module.scss";
 import Input from "../../UI/Input/Input";
 import Button from "../../UI/Button/Button";
 import Select from "../../UI/Select/Select";
 
-const NewDependent = () => {
+const AddDependent = () => {
   return (
     <div>
       <h1>Add a new dependent</h1>
       <Select />
-      <section className={newDependentStyles.nameSection}>
+      <section className={addDependentStyles.nameSection}>
         <Input labelText="First Name" placeholder="Pat" type="text" />
         <Input labelText="Last Name" placeholder="Johnson" type="text" />
       </section>
-      <section className={newDependentStyles.contactSection}>
+      <section className={addDependentStyles.contactSection}>
         <Input labelText="Email" placeholder="pat@gmail.com" type="email" />
         <Input
           labelText="Phone Number"
@@ -21,7 +21,7 @@ const NewDependent = () => {
           type="number"
         />
       </section>
-      <section className={newDependentStyles.addressSection}>
+      <section className={addDependentStyles.addressSection}>
         <Input labelText="Same Address As Employee?" type="checkbox" />
         <Input
           labelText="Street Address"
@@ -32,11 +32,11 @@ const NewDependent = () => {
         <Input labelText="State" placeholder="Illinois" type="text" />
         <Input labelText="Zip" placeholder="60014" type="number" />
       </section>
-      <section className={newDependentStyles.addSection}>
+      <section className={addDependentStyles.addSection}>
         <Button text="Add Another Dependent" ariaLabel="add dependent button" />
       </section>
     </div>
   );
 };
 
-export default NewDependent;
+export default AddDependent;
