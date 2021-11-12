@@ -35,7 +35,11 @@ const AddEmployeeForm = () => {
               />
             </div>
             <div className={addEmployeeFormStyles.line2}>
-              <Input labelText="Address Line 2" placeholder="" type="text" />
+              <Input
+                labelText="Address Line 2"
+                placeholder="Apt. 1"
+                type="text"
+              />
             </div>
           </div>
           <div className={addEmployeeFormStyles.cityStateZip}>

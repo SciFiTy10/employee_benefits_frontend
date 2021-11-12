@@ -28,3 +28,48 @@ $border-radius: 4px;
     rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 12%) 0px 1px 3px 0px;
   border: 1px $secondary-text-color solid;
 }
+
+// MEDIA QUERY MANAGER
+/* Per https://mui.com/customization/breakpoints/
+0 - 600px:          xs
+600px - 900px       sm
+900px - 1200px      md
+[1200px - 1536px]   lg
+1536px +            xl
+
+Mixin below is based off of:
+1rem = 16px
+*/
+@mixin respond($breakpoint) {
+  // xs
+  @if $breakpoint == xs {
+    @media (max-width: 37.5rem) {
+      @content;
+    } //0 - 600px
+  }
+  // sm
+  @if $breakpoint == sm {
+    @media (max-width: 56.25rem) {
+      @content;
+    } //900px
+  }
+  // md
+  @if $breakpoint == md {
+    @media (max-width: 75rem) {
+      @content;
+    } //1200px
+  }
+  //lg
+  @if $breakpoint == lg {
+    @media (min-width: 75rem) and (max-width: 96rem) {
+      @content;
+    }
+  } //1536px
+
+  // xl
+  @if $breakpoint == xl {
+    @media (min-width: 965rem) {
+      @content;
+    } //1536px +
+  }
+}
