@@ -1,0 +1,15 @@
+@import "../../../Style/App.module.scss";
+
+.button {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.submit {
+  background-color: $primary-color;
+  color: $secondary-text-color;
+  &:hover {
+    background-color: black;
+    cursor: pointer;
+  }
+}

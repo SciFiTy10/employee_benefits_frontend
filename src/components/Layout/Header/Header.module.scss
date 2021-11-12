@@ -1,7 +1,7 @@
 @import "../../../style/App.module.scss";
 
 .header {
-  background-image: linear-gradient(to right, #ed2024 0, #ff8f1c 100%);
+  background-color: $primary-color;
   min-height: 10%;
   position: fixed;
   width: 100%;

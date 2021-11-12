@@ -6,11 +6,9 @@ import AddDependent from "../../Dependent/AddDependent/AddDependent";
 
 const AddEmployeeForm = () => {
   return (
-    <div className={addEmployeeFormStyles.AddEmployeeForm}>
-      <section>
-        <h1>Add A New Employee</h1>
-      </section>
-      <form action="#">
+    <section className={addEmployeeFormStyles.addEmployeeForm}>
+      <h2 className={addEmployeeFormStyles.header}>Add A New Employee</h2>
+      <div className={addEmployeeFormStyles.body}>
         <section className={addEmployeeFormStyles.nameSection}>
           <Input labelText="First Name" placeholder="Pat" type="text" />
           <Input labelText="Last Name" placeholder="Johnson" type="text" />
@@ -28,23 +26,43 @@ const AddEmployeeForm = () => {
           />
         </section>
         <section className={addEmployeeFormStyles.addressSection}>
-          <Input
-            labelText="Address Line 1"
-            placeholder="123 Fourth Street"
-            type="text"
-          />
-          <Input labelText="Address Line 2" placeholder="" type="text" />
-          <Input labelText="City" placeholder="Schaumburg" type="text" />
-          <Input labelText="State" placeholder="Illinois" type="text" />
-          <Input labelText="Zip" placeholder="60014" type="number" />
+          <div className={addEmployeeFormStyles.addressLines}>
+            <div className={addEmployeeFormStyles.line1}>
+              <Input
+                labelText="Address Line 1"
+                placeholder="123 Fourth Street"
+                type="text"
+              />
+            </div>
+            <div className={addEmployeeFormStyles.line2}>
+              <Input labelText="Address Line 2" placeholder="" type="text" />
+            </div>
+          </div>
+          <div className={addEmployeeFormStyles.cityStateZip}>
+            <div className={addEmployeeFormStyles.city}>
+              <Input labelText="City" placeholder="Schaumburg" type="text" />
+            </div>
+            <div className={addEmployeeFormStyles.state}>
+              <Input labelText="State" placeholder="Illinois" type="text" />
+            </div>
+            <div className={addEmployeeFormStyles.zip}>
+              <Input labelText="Zip" placeholder="60014" type="number" />
+            </div>
+          </div>
         </section>
-        <section className={addEmployeeFormStyles.addSection}>
+        <section className={addEmployeeFormStyles.actionSection}>
           <Button text="Add Dependent" ariaLabel="add dependent button" />
-          <Input labelText="" type="submit" value="Add Employee" />
+          <div className={addEmployeeFormStyles.submit}>
+            <Button
+              text="Submit"
+              ariaLabel="submit button"
+              buttonType="submit"
+            />
+          </div>
         </section>
         <AddDependent />
-      </form>
-    </div>
+      </div>
+    </section>
   );
 };
 

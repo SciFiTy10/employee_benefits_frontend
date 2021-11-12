@@ -3,8 +3,9 @@
 }
 
 //app background color
-$primary-color: linear-gradient(to right, #ed2024 0, #ff8f1c 100%);
-$secondary-color: #323e48;
+$primary-color: #323e48;
+$secondary-color: linear-gradient(to right, #ed2024 0, #ff8f1c 100%);
+$light-color: white;
 //text colors
 $primary-text-color: black;
 $secondary-text-color: white;
@@ -26,5 +27,4 @@ $border-radius: 4px;
   box-shadow: rgb(0 0 0 / 20%) 0px 2px 1px -1px,
     rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 12%) 0px 1px 3px 0px;
   border: 1px $secondary-text-color solid;
-  padding: 16px;
 }

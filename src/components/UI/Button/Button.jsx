@@ -3,7 +3,13 @@ import buttonStyles from "./Button.module.scss";
 
 const Button = (props) => {
   return (
-    <button type="text" aria-label={props.ariaLabel}>
+    <button
+      type="text"
+      aria-label={props.ariaLabel}
+      className={`${buttonStyles.button} ${
+        props.buttonType === "submit" ? buttonStyles.submit : ""
+      }`}
+    >
       {props.text}
     </button>
   );

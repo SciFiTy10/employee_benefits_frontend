@@ -1,26 +1,73 @@
 @import "../../../style/App.module.scss";
 
-.newEmployeeForm {
+.addEmployeeForm {
   border: 1px solid black;
   width: 50%;
   @include section-spacing;
   @include card;
-}
+  background-color: $primary-color;
 
-.nameSection {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
+  .header {
+    background-color: $primary-color;
+    color: $secondary-text-color;
+    padding: 8px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
 
-.contactSection {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
+  .nameSection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: $light-color;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
 
-.addressSection {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  .contactSection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: $light-color;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  .addressSection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: $light-color;
+    padding-top: 8px;
+    padding-bottom: 8px;
+
+    .addressLines {
+      display: flex;
+      flex-direction: column;
+      .line1,
+      .line2 {
+        padding-bottom: 8px;
+      }
+    }
+    .cityStateZip {
+      display: flex;
+      flex-direction: column;
+      .city,
+      .state,
+      .zip {
+        padding-bottom: 8px;
+      }
+    }
+  }
+
+  .actionSection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    background-color: $light-color;
+    padding: 8px;
+    .submit {
+      padding-left: 8px;
+    }
+  }
 }
