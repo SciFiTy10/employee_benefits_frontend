@@ -2,7 +2,25 @@
 
 .newEmployeeForm {
   border: 1px solid black;
-  width: 100%;
+  width: 50%;
   @include section-spacing;
   @include card;
+}
+
+.nameSection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.contactSection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.addressSection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
