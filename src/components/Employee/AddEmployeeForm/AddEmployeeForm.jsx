@@ -8,16 +8,16 @@ const AddEmployeeForm = () => {
   return (
     <section className={addEmployeeFormStyles.addEmployeeForm}>
       <h2 className={addEmployeeFormStyles.header}>Add A New Employee</h2>
-      <div className={addEmployeeFormStyles.body}>
-        <section className={addEmployeeFormStyles.nameSection}>
+      <article className={addEmployeeFormStyles.body}>
+        <address className={addEmployeeFormStyles.nameSection}>
           <div className={addEmployeeFormStyles.firstName}>
             <Input labelText="First Name" placeholder="Pat" type="text" />
           </div>
           <div className={addEmployeeFormStyles.lastName}>
             <Input labelText="Last Name" placeholder="Johnson" type="text" />
           </div>
-        </section>
-        <section className={addEmployeeFormStyles.contactSection}>
+        </address>
+        <address className={addEmployeeFormStyles.contactSection}>
           <div className={addEmployeeFormStyles.email}>
             <Input
               labelText="Email"
@@ -32,8 +32,8 @@ const AddEmployeeForm = () => {
               type="number"
             />
           </div>
-        </section>
-        <section className={addEmployeeFormStyles.addressSection}>
+        </address>
+        <address className={addEmployeeFormStyles.addressSection}>
           <div className={addEmployeeFormStyles.addressLines}>
             <div className={addEmployeeFormStyles.line1}>
               <Input
@@ -61,8 +61,8 @@ const AddEmployeeForm = () => {
               <Input labelText="Zip" placeholder="60014" type="number" />
             </div>
           </div>
-        </section>
-        <section className={addEmployeeFormStyles.actionSection}>
+        </address>
+        <div className={addEmployeeFormStyles.actionSection}>
           <Button text="Add Dependent" ariaLabel="add dependent button" />
           <div className={addEmployeeFormStyles.submit}>
             <Button
@@ -71,9 +71,9 @@ const AddEmployeeForm = () => {
               buttonType="submit"
             />
           </div>
-        </section>
+        </div>
         <AddDependent />
-      </div>
+      </article>
     </section>
   );
 };
