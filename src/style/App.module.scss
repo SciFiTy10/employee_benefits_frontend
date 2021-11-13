@@ -17,7 +17,7 @@ $border-radius: 4px;
 
 /* Mixins */
 @mixin section-spacing {
-  margin-bottom: 5%;
+  margin-bottom: 2%;
   margin-top: 2%;
 }
 
@@ -49,13 +49,13 @@ Mixin below is based off of:
   }
   // sm
   @if $breakpoint == sm {
-    @media (max-width: 56.25rem) {
+    @media (min-width: 37.5rem) and (max-width: 56.25rem) {
       @content;
     } //900px
   }
   // md
   @if $breakpoint == md {
-    @media (max-width: 75rem) {
+    @media (min-width: 56.25rem) and (max-width: 75rem) {
       @content;
     } //1200px
   }

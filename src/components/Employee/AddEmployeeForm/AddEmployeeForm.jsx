@@ -10,20 +10,28 @@ const AddEmployeeForm = () => {
       <h2 className={addEmployeeFormStyles.header}>Add A New Employee</h2>
       <div className={addEmployeeFormStyles.body}>
         <section className={addEmployeeFormStyles.nameSection}>
-          <Input labelText="First Name" placeholder="Pat" type="text" />
-          <Input labelText="Last Name" placeholder="Johnson" type="text" />
+          <div className={addEmployeeFormStyles.firstName}>
+            <Input labelText="First Name" placeholder="Pat" type="text" />
+          </div>
+          <div className={addEmployeeFormStyles.lastName}>
+            <Input labelText="Last Name" placeholder="Johnson" type="text" />
+          </div>
         </section>
         <section className={addEmployeeFormStyles.contactSection}>
-          <Input
-            labelText="Email"
-            placeholder="pjohnson@gmail.com"
-            type="email"
-          />
-          <Input
-            labelText="Phone Number"
-            placeholder="(555) 555-5555"
-            type="number"
-          />
+          <div className={addEmployeeFormStyles.email}>
+            <Input
+              labelText="Email"
+              placeholder="pjohnson@gmail.com"
+              type="email"
+            />
+          </div>
+          <div className={addEmployeeFormStyles.phoneNumber}>
+            <Input
+              labelText="Phone Number"
+              placeholder="(555) 555-5555"
+              type="number"
+            />
+          </div>
         </section>
         <section className={addEmployeeFormStyles.addressSection}>
           <div className={addEmployeeFormStyles.addressLines}>
