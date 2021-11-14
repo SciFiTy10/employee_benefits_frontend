@@ -29,8 +29,8 @@ const AddEmployeeDialog = () => {
   });
   //grab the context
   const ctx = useContext(AppContext);
-  //handler for opening the dialog
-  const showDialogHandler = () => {
+  //handler for closing the dialog
+  const closeDialogHandler = () => {
     ctx.addEmployeeDialogHandler(false);
   };
   //handler for showing the add dependent fields
@@ -91,7 +91,7 @@ const AddEmployeeDialog = () => {
     //validate format for email
     if (
       employee.email.length > 0 &&
-      new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(
+      new RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/).test(
         employee.email
       ) === false
     ) {
@@ -239,12 +239,14 @@ const AddEmployeeDialog = () => {
             lastName={employee.lastName}
             onFirstNameChange={firstNameHandler}
             onLastNameChange={lastNameHandler}
+            id="employee"
           />
           <ContactSection
             email={employee.email}
             phoneNumber={employee.phoneNumber}
             onEmailChange={emailHandler}
             onPhoneNumberChange={phoneNumberHandler}
+            id="employee"
           />
           <AddressSection
             addressLine1={employee.addressLine1}
@@ -266,7 +268,7 @@ const AddEmployeeDialog = () => {
               <Button
                 text="Close"
                 ariaLabel="close add employee dialog"
-                onClick={showDialogHandler}
+                onClick={closeDialogHandler}
               />
             </div>
             <Button

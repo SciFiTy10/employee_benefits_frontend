@@ -19,30 +19,83 @@ describe("add employee", () => {
     expect(screen.getByText("Add A New Employee")).toBeInTheDocument();
   });
 
-  //   it("renders a cart with an item", () => {
-  //     //mock the currentAuthenticatedUser method
-  //     jest.spyOn(Auth, "currentAuthenticatedUser").mockImplementation(() => {
-  //       return Promise.resolve("done");
-  //     });
-  //     const { getByLabelText, getByTestId } = render(
-  //       <AppContextProvider>
-  //         <Header />
-  //         <Menu />
-  //         <CartDialogContainer />
-  //       </AppContextProvider>
-  //     );
+  it("throws an error when an employee doesn't have a first name", () => {
+    const { getByLabelText } = render(
+      <AppContextProvider>
+        <Content />
+      </AppContextProvider>
+    );
+    //click the add employee button
+    userEvent.click(getByLabelText("add employee button"));
+    //click the add employee button
+    userEvent.click(getByLabelText("submit button"));
+    //check whether the error is displayed
+    expect(
+      screen.getByText("Please enter a first name for the employee.")
+    ).toBeInTheDocument();
+  });
 
-  //     //add an item from the menu
-  //     userEvent.click(getByTestId("add one Royale With Cheese menu 1"));
+  it("throws an error when an employee doesn't have a last name", () => {
+    const { getByLabelText } = render(
+      <AppContextProvider>
+        <Content />
+      </AppContextProvider>
+    );
+    //click the add employee button
+    userEvent.click(getByLabelText("add employee button"));
+    //enter a first name
+    userEvent.type(screen.getByLabelText("first name employee"), "test");
+    //click the add employee button
+    userEvent.click(getByLabelText("submit button"));
+    //check whether the error is displayed
+    expect(
+      screen.getByText("Please enter a last name for test.")
+    ).toBeInTheDocument();
+  });
 
-  //     //click the cart button
-  //     userEvent.click(getByLabelText("shopping cart button"));
-
-  //     //there should be a count of 1 for the item in the cart
-  //     expect(
-  //       screen
-  //         .getByTestId("amount of Royale With Cheese cart 1")
-  //         .querySelector("input")
-  //     ).toHaveValue("1");
-  //   });
+  it("throws an error when an employee doesn't have an email", () => {
+    const { getByLabelText } = render(
+      <AppContextProvider>
+        <Content />
+      </AppContextProvider>
+    );
+    //click the add employee button
+    userEvent.click(getByLabelText("add employee button"));
+    //enter a first name
+    userEvent.type(screen.getByLabelText("first name employee"), "test");
+    //enter a last name
+    userEvent.type(screen.getByLabelText("last name employee"), "test");
+    //click the add employee button
+    userEvent.click(getByLabelText("submit button"));
+    //check whether the error is displayed
+    expect(
+      screen.getByText("Please enter an email for test.")
+    ).toBeInTheDocument();
+  });
+  it("throws an error when an employee has an invalid email", () => {
+    const { getByLabelText } = render(
+      <AppContextProvider>
+        <Content />
+      </AppContextProvider>
+    );
+    //click the add employee button
+    userEvent.click(getByLabelText("add employee button"));
+    //enter a first name
+    userEvent.type(screen.getByLabelText("first name employee"), "test");
+    //enter a last name
+    userEvent.type(screen.getByLabelText("last name employee"), "test");
+    //enter an invalid email
+    userEvent.type(screen.getByLabelText("email employee"), "test@gmail");
+    //click the add employee button
+    userEvent.click(getByLabelText("submit button"));
+    //check whether the error is displayed
+    expect(
+      screen.getByText(
+        `Please enter an email in a valid format for test. Ex: "name@gmail.com"`
+      )
+    ).toBeInTheDocument();
+  });
 });
+
+// //add an item from the menu
+// userEvent.click(getByTestId("add one Royale With Cheese menu 1"));

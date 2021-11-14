@@ -11,6 +11,7 @@ const ContactSection = (props) => {
           type="email"
           value={props.email}
           onChange={props.onEmailChange}
+          ariaLabel={`email ${props.id}`}
         />
       </div>
       <div className={contactSectionStyles.phoneNumber}>

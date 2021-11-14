@@ -11,6 +11,7 @@ const NameSection = (props) => {
           type="text"
           value={props.firstName}
           onChange={props.onFirstNameChange}
+          ariaLabel={`first name ${props.id}`}
         />
       </div>
       <div className={nameSectionStyles.lastName}>
@@ -20,6 +21,7 @@ const NameSection = (props) => {
           type="text"
           value={props.lastName}
           onChange={props.onLastNameChange}
+          ariaLabel={`last name ${props.id}`}
         />
       </div>
     </address>
