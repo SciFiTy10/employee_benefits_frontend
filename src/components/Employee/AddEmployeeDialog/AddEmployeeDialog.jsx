@@ -19,12 +19,12 @@ const AddEmployeeDialog = () => {
     firstName: "",
     lastName: "",
     email: "",
-    phoneNumber: 0,
+    phoneNumber: null,
     addressLine1: "",
     addressLine2: "",
     city: "",
     state: "",
-    zip: 0,
+    zip: null,
     dependents: [],
   });
   //grab the context
@@ -91,15 +91,16 @@ const AddEmployeeDialog = () => {
     //validate format for email
     if (
       employee.email.length > 0 &&
-      new RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/).test(
+      new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(
         employee.email
       ) === false
     ) {
       alert.message = `Please enter an email in a valid format for ${employee.firstName}. Ex: "name@gmail.com"`;
       ctx.alertHandler(alert);
+      return;
     }
     //validate phone number
-    if (employee.phoneNumber === "" || employee.phoneNumber === 0) {
+    if (employee.phoneNumber === null || employee.phoneNumber === "") {
       alert.message = `Please enter a phone number for ${employee.firstName}.`;
       ctx.alertHandler(alert);
       //break execution
@@ -134,7 +135,7 @@ const AddEmployeeDialog = () => {
       return;
     }
     //validate zip code
-    if (employee.zip === "" || employee.zip === 0) {
+    if (employee.zip === null || employee.zip === "") {
       alert.message = `Please enter a zip code for ${employee.firstName}. Ex: 60123`;
       ctx.alertHandler(alert);
       //break execution
@@ -259,6 +260,7 @@ const AddEmployeeDialog = () => {
             onCityChange={cityHandler}
             onStateChange={stateHandler}
             onZipChange={zipHandler}
+            id="employee"
           />
           {employee.dependents.map((dependent) => (
             <AddDependent key={dependent.dependentId} dependent={dependent} />

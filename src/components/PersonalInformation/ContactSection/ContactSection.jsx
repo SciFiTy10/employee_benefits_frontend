@@ -21,6 +21,7 @@ const ContactSection = (props) => {
           type="number"
           value={props.phoneNumber}
           onChange={props.onPhoneNumberChange}
+          ariaLabel={`phone number ${props.id}`}
         />
       </div>
     </address>

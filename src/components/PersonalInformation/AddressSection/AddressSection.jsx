@@ -12,6 +12,7 @@ const AddressSection = (props) => {
             type="text"
             value={props.addressLine1}
             onChange={props.onAddressLine1Change}
+            ariaLabel={`addressLine1 ${props.id}`}
           />
         </div>
         <div className={addressSectionStyles.line2}>
@@ -21,6 +22,7 @@ const AddressSection = (props) => {
             type="text"
             value={props.addressLine2}
             onChange={props.onAddressLine2Change}
+            ariaLabel={`addressLine2 ${props.id}`}
           />
         </div>
       </div>
@@ -32,6 +34,7 @@ const AddressSection = (props) => {
             type="text"
             value={props.city}
             onChange={props.onCityChange}
+            ariaLabel={`city ${props.id}`}
           />
         </div>
         <div className={addressSectionStyles.state}>
@@ -41,6 +44,7 @@ const AddressSection = (props) => {
             type="text"
             value={props.state}
             onChange={props.onStateChange}
+            ariaLabel={`state ${props.id}`}
           />
         </div>
         <div className={addressSectionStyles.zip}>
@@ -50,6 +54,7 @@ const AddressSection = (props) => {
             type="number"
             value={props.zip}
             onChange={props.onZipChange}
+            ariaLabel={`zip ${props.id}`}
           />
         </div>
       </div>
