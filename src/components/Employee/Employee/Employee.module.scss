@@ -1,0 +1,11 @@
+@import "../../../style/App.module.scss";
+
+.header {
+  display: flex;
+  justify-content: center;
+}
+.employee {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 2%;
+}

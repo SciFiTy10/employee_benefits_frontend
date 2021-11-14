@@ -1,0 +1,8 @@
+@import "../../../Style/App.module.scss";
+
+.dependent {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  padding-bottom: 2%;
+}
