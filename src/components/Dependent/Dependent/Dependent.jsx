@@ -38,7 +38,7 @@ const Dependent = (props) => {
             zip={zip}
           />
         </address>
-        <address className={dependentStyles.addressSection}>
+        <address>
           <SummaryCostPerCheck costPerCheck={costPerCheck} />
         </address>
       </article>

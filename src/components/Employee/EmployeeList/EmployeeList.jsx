@@ -3,6 +3,7 @@ import Employee from "../Employee/Employee";
 import DependentList from "../../Dependent/DependentList/DependentList";
 import employeeListStyles from "../EmployeeList/EmployeeList.module.scss";
 import { AppContext } from "../../../Context/App-Context";
+import SummaryEmployeeTotal from "../../Summary/SummaryEmployeeTotal/SummaryEmployeeTotal";
 const EmployeeList = () => {
   //grab the context object
   const ctx = useContext(AppContext);
@@ -16,6 +17,7 @@ const EmployeeList = () => {
             {employee.dependents.length > 0 ? (
               <DependentList dependents={employee.dependents} />
             ) : null}
+            <SummaryEmployeeTotal employee={employee} />
           </>
         );
       })}

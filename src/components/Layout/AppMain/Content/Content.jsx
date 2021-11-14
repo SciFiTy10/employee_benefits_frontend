@@ -13,7 +13,7 @@ const Content = () => {
   return (
     <div className={contentStyles.content}>
       <Notification />
-      {ctx.employeeList.length == 0 ? (
+      {ctx.employeeList.length === 0 ? (
         <NoEmployees />
       ) : (
         <Summary employeeList={ctx.employeeList} />
