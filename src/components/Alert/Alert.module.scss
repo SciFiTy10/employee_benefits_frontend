@@ -1,13 +1,15 @@
 @import "../../style/App.module.scss";
 
 .alert {
+  position: absolute;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   margin-top: 2%;
   border-radius: $border-radius;
   padding: 8px;
   width: 30%;
+  z-index: 99999;
 
   @include respond(xs) {
     width: 90%;
@@ -20,6 +22,12 @@
   }
   @include respond(lg) {
     width: 30%;
+  }
+}
+.closeAlert {
+  cursor: pointer;
+  &:hover {
+    color: $primary-text-color;
   }
 }
 

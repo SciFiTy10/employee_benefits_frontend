@@ -3,7 +3,7 @@ import inputStyles from "./Input.module.scss";
 
 const Input = (props) => {
   return (
-    <label for="input">
+    <label htmlFor="input">
       {props.labelText}
       <input
         id="input"

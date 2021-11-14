@@ -19,7 +19,9 @@ const Content = () => {
   };
   return (
     <div className={contentStyles.content}>
-      <Alert />
+      {ctx.alert.showAlert && (
+        <Alert alert={ctx.alert} alertHandler={ctx.alertHandler} />
+      )}
       {ctx.showAddEmployeeDialog && <AddEmployeeDialog />}
       {ctx.employeeList.employees.length === 0 ? (
         <NoEmployees />

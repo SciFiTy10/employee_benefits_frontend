@@ -76,6 +76,10 @@ const AppContextProvider = (props) => {
   //handler function for the alert
   const alertHandler = (alert) => {
     setAlert(alert);
+    //after 10 seconds, close the alert
+    setTimeout(() => {
+      setAlert({ showAlert: false, isSuccess: false, message: "" });
+    }, 10000);
   };
   return (
     <AppContext.Provider
