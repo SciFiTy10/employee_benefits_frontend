@@ -1,24 +1,38 @@
 import React, { useContext } from "react";
 import { AppContext } from "../../../../Context/App-Context";
-import AddEmployee from "../../../Employee/AddEmployee/AddEmployee";
+import AddEmployeeDialog from "../../../Employee/AddEmployeeDialog/AddEmployeeDialog";
 import NoEmployees from "../../../NoEmployees/NoEmployees";
 import Notification from "../../../Notification/Notification";
 import Summary from "../../../Summary/Summary";
+import Button from "../../../UI/Button/Button";
 //style
 import contentStyles from "./Content.module.scss";
 
 const Content = () => {
   //grab the context object
   const ctx = useContext(AppContext);
+  //test
+  ctx.employeeList.employees.length = 0;
+  //handler for opening the dialog
+  const showDialogHandler = () => {
+    ctx.addEmployeeDialogHandler(true);
+  };
   return (
     <div className={contentStyles.content}>
       <Notification />
+      {ctx.showAddEmployeeDialog && <AddEmployeeDialog />}
       {ctx.employeeList.employees.length === 0 ? (
         <NoEmployees />
       ) : (
-        <Summary employeeList={ctx.employeeList} />
+        <>
+          <Button
+            onClick={showDialogHandler}
+            ariaLabel="add employee button"
+            text="Add Employee"
+          />
+          <Summary employeeList={ctx.employeeList} />
+        </>
       )}
-      <AddEmployee />
     </div>
   );
 };

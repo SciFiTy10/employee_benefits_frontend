@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useState, useReducer } from "react";
 import { AppContext } from "./App-Context";
 import { employeeListReducer } from "../Reducers/employeeListReducer";
 
@@ -52,6 +52,8 @@ const AppContextProvider = (props) => {
       },
     ],
   });
+  //create state for opening the add employee dialog
+  const [showAddEmployeeDialog, setShowAddEmployeeDialog] = useState(false);
 
   //handler function for adding an item to the employeeList
   const employeeListAddHandler = (item) => {
@@ -61,11 +63,17 @@ const AppContextProvider = (props) => {
       dispatchEmployeeList({ type: "ADD_TO_EMPLOYEE_LIST", payload: item });
     }
   };
+  //handler function for showing the add employee dialog
+  const addEmployeeDialogHandler = (isOpen) => {
+    setShowAddEmployeeDialog(isOpen);
+  };
   return (
     <AppContext.Provider
       value={{
         employeeList,
         employeeListAddHandler,
+        showAddEmployeeDialog,
+        addEmployeeDialogHandler,
       }}
     >
       {props.children}

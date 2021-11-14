@@ -4,6 +4,7 @@ import buttonStyles from "./Button.module.scss";
 const Button = (props) => {
   return (
     <button
+      onClick={props.onClick}
       type="text"
       aria-label={props.ariaLabel}
       className={`${buttonStyles.button} ${
