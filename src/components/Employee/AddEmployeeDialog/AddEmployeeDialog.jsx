@@ -25,7 +25,6 @@ const AddEmployeeDialog = () => {
     city: "",
     state: "",
     zip: 0,
-    costPerCheck: 0,
     dependents: [],
   });
   //grab the context
@@ -42,8 +41,10 @@ const AddEmployeeDialog = () => {
     }
     //push a new dependent onto the state
     const currentEmployee = { ...employee };
+    //create the dependentId
+    const dependentId = currentEmployee.dependents.length + 1;
     currentEmployee.dependents.push({
-      dependentId: -1,
+      dependentId: dependentId,
       dependentType: "",
       firstName: "",
       lastName: "",
@@ -54,7 +55,6 @@ const AddEmployeeDialog = () => {
       city: "",
       state: "",
       zip: 0,
-      costPerCheck: 0,
     });
     //update the state
     setEmployee(currentEmployee);
