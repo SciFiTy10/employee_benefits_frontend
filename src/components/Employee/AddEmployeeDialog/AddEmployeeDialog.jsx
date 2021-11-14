@@ -34,6 +34,8 @@ const AddEmployeeDialog = () => {
   const showDialogHandler = () => {
     ctx.addEmployeeDialogHandler(false);
   };
+  //handler for displaying the alert
+  const alertHandler = (alert) => {};
   //handler for showing the add dependent fields
   const addDependentHandler = () => {
     //double check that there aren't any missing fields first

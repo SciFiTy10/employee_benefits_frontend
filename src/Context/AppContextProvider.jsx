@@ -54,6 +54,12 @@ const AppContextProvider = (props) => {
   });
   //create state for opening the add employee dialog
   const [showAddEmployeeDialog, setShowAddEmployeeDialog] = useState(false);
+  //create state for the alert
+  const [alert, setAlert] = useState({
+    showAlert: false,
+    isSuccess: false,
+    message: "",
+  });
 
   //handler function for adding an item to the employeeList
   const employeeListAddHandler = (item) => {
@@ -67,6 +73,10 @@ const AppContextProvider = (props) => {
   const addEmployeeDialogHandler = (isOpen) => {
     setShowAddEmployeeDialog(isOpen);
   };
+  //handler function for the alert
+  const alertHandler = (alert) => {
+    setAlert(alert);
+  };
   return (
     <AppContext.Provider
       value={{
@@ -74,6 +84,8 @@ const AppContextProvider = (props) => {
         employeeListAddHandler,
         showAddEmployeeDialog,
         addEmployeeDialogHandler,
+        alert,
+        alertHandler,
       }}
     >
       {props.children}

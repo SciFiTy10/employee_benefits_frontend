@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { AppContext } from "../../../../Context/App-Context";
 import AddEmployeeDialog from "../../../Employee/AddEmployeeDialog/AddEmployeeDialog";
 import NoEmployees from "../../../NoEmployees/NoEmployees";
-import Notification from "../../../Notification/Notification";
+import Alert from "../../../Alert/Alert";
 import Summary from "../../../Summary/Summary";
 import Button from "../../../UI/Button/Button";
 //style
@@ -19,7 +19,7 @@ const Content = () => {
   };
   return (
     <div className={contentStyles.content}>
-      <Notification />
+      <Alert />
       {ctx.showAddEmployeeDialog && <AddEmployeeDialog />}
       {ctx.employeeList.employees.length === 0 ? (
         <NoEmployees />
