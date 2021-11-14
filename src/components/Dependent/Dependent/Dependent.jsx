@@ -1,5 +1,9 @@
 import React from "react";
+import SummaryContact from "../../Summary/SummaryContact/SummaryContact";
+import SummaryName from "../../Summary/SummaryName/SummaryName";
+import SummaryAddress from "../../Summary/SummaryAddress/SummaryAddress";
 import dependentStyles from "./Dependent.module.scss";
+import SummaryCostPerCheck from "../../Summary/SummaryCostPerCheck/SummaryCostPerCheck";
 const Dependent = (props) => {
   //grab each of the employee attributes from the object
   const {
@@ -13,45 +17,29 @@ const Dependent = (props) => {
     city,
     state,
     zip,
+    costPerCheck,
   } = props.dependent;
-  //grab the formatted phoneNumber
-  const formattedPhoneNumber =
-    dependentType === "Spouse"
-      ? `(${phoneNumber.toString().substring(0, 3)}) ${phoneNumber
-          .toString()
-          .substring(3, 6)}-${phoneNumber
-          .toString()
-          .substring(
-            phoneNumber.toString().length - 4,
-            phoneNumber.toString().length
-          )}`
-      : "";
-  //grab the formatted cityStateZip
-  const formattedCityStateZip = `${city}, ${state} ${zip}`;
+
   return (
-    <section className={dependentStyles.dependentSection}>
+    <section>
       <article className={dependentStyles.dependent}>
-        <address className={dependentStyles.nameAndContactSection}>
-          <div className={dependentStyles.name}>
-            <span>{`${firstName} ${lastName}`}</span>
-          </div>
-          <div className={dependentStyles.contact}>
-            <div>{formattedPhoneNumber}</div>
-            <span>{email}</span>
-          </div>
+        <address>
+          <SummaryName name={`${firstName} ${lastName}`} />
+          <SummaryContact
+            phoneNumber={phoneNumber}
+            email={email}
+            dependentType={dependentType}
+          />
+          <SummaryAddress
+            addressLine1={addressLine1}
+            addressLine2={addressLine2}
+            city={city}
+            state={state}
+            zip={zip}
+          />
         </address>
         <address className={dependentStyles.addressSection}>
-          <div className={dependentStyles.line1}>
-            <span>{addressLine1}</span>
-          </div>
-          {addressLine2 !== "" && (
-            <div className={dependentStyles.line2}>
-              <span>{addressLine2}</span>
-            </div>
-          )}
-          <div className={dependentStyles.cityStateZip}>
-            <span>{formattedCityStateZip}</span>
-          </div>
+          <SummaryCostPerCheck costPerCheck={costPerCheck} />
         </address>
       </article>
     </section>

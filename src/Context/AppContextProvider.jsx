@@ -16,6 +16,7 @@ const AppContextProvider = (props) => {
       city: "Schaumburg",
       state: "Illinois",
       zip: 60014,
+      costPerCheck: 38.46,
       dependents: [
         {
           dependentId: 1,
@@ -29,6 +30,7 @@ const AppContextProvider = (props) => {
           city: "Schaumburg",
           state: "Illinois",
           zip: 60014,
+          costPerCheck: 19.23,
         },
         {
           dependentId: 2,
@@ -42,6 +44,7 @@ const AppContextProvider = (props) => {
           city: "Schaumburg",
           state: "Illinois",
           zip: 60014,
+          costPerCheck: 19.23,
         },
       ],
     },

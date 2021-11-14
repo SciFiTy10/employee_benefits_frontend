@@ -1,4 +1,9 @@
 import React from "react";
+import SummaryAddress from "../../Summary/SummaryAddress/SummaryAddress";
+import SummaryContact from "../../Summary/SummaryContact/SummaryContact";
+import SummaryCostPerCheck from "../../Summary/SummaryCostPerCheck/SummaryCostPerCheck";
+import SummaryHeader from "../../Summary/SummaryHeader/SummaryHeader";
+import SummaryName from "../../Summary/SummaryName/SummaryName";
 import employeeStyles from "./Employee.module.scss";
 
 const Employee = (props) => {
@@ -13,44 +18,26 @@ const Employee = (props) => {
     city,
     state,
     zip,
-    dependents,
+    costPerCheck,
   } = props.employee;
-  //grab the formatted phoneNumber
-  const formattedPhoneNumber = `(${phoneNumber
-    .toString()
-    .substring(0, 3)}) ${phoneNumber.toString().substring(3, 6)}-${phoneNumber
-    .toString()
-    .substring(
-      phoneNumber.toString().length - 4,
-      phoneNumber.toString().length
-    )}`;
-  //grab the formatted cityStateZip
-  const formattedCityStateZip = `${city}, ${state} ${zip}`;
+
   return (
-    <section className={employeeStyles.employeeSection}>
-      <h2 className={employeeStyles.header}>Employee</h2>
+    <section>
+      <SummaryHeader text="Employee" />
       <article className={employeeStyles.employee}>
-        <address className={employeeStyles.nameAndContactSection}>
-          <div className={employeeStyles.name}>
-            <span>{`${firstName} ${lastName}`}</span>
-          </div>
-          <div className={employeeStyles.contact}>
-            <div>{formattedPhoneNumber}</div>
-            <span>{email}</span>
-          </div>
+        <address>
+          <SummaryName name={`${firstName} ${lastName}`} />
+          <SummaryContact phoneNumber={phoneNumber} email={email} />
+          <SummaryAddress
+            addressLine1={addressLine1}
+            addressLine2={addressLine2}
+            city={city}
+            state={state}
+            zip={zip}
+          />
         </address>
-        <address className={employeeStyles.addressSection}>
-          <div className={employeeStyles.line1}>
-            <span>{addressLine1}</span>
-          </div>
-          {addressLine2 !== "" && (
-            <div className={employeeStyles.line2}>
-              <span>{addressLine2}</span>
-            </div>
-          )}
-          <div className={employeeStyles.cityStateZip}>
-            <span>{formattedCityStateZip}</span>
-          </div>
+        <address>
+          <SummaryCostPerCheck costPerCheck={costPerCheck} />
         </address>
       </article>
     </section>
