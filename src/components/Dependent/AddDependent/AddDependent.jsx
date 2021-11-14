@@ -11,7 +11,7 @@ import SameAddressSection from "../../PersonalInformation/SameAddressSection/Sam
 const AddDependent = () => {
   return (
     <section>
-      <HeaderSection text="Add a new dependent" />
+      <HeaderSection text="Add A New Dependent" />
       <article>
         <DependentTypeSection />
         <NameSection />
