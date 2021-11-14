@@ -34,6 +34,31 @@ const AddEmployeeDialog = () => {
   const showDialogHandler = () => {
     ctx.addEmployeeDialogHandler(false);
   };
+  //handler for showing the add dependent fields
+  const addDependentHandler = () => {
+    //double check that there aren't any missing fields first
+    if (employee.dependents.length !== 0) {
+      return;
+    }
+    //push a new dependent onto the state
+    const currentEmployee = { ...employee };
+    currentEmployee.dependents.push({
+      dependentId: -1,
+      dependentType: "",
+      firstName: "",
+      lastName: "",
+      email: "",
+      phoneNumber: 0,
+      addressLine1: "",
+      addressLine2: "",
+      city: "",
+      state: "",
+      zip: 0,
+      costPerCheck: 0,
+    });
+    //update the state
+    setEmployee(currentEmployee);
+  };
   //handler for setting the firstName
   const firstNameHandler = (event) => {
     //copy the current employee state
@@ -144,6 +169,9 @@ const AddEmployeeDialog = () => {
             onStateChange={stateHandler}
             onZipChange={zipHandler}
           />
+          {employee.dependents.map((dependent) => (
+            <AddDependent key={dependent.dependentId} dependent={dependent} />
+          ))}
           <ActionSection>
             <div className={actionStyles.close}>
               <Button
@@ -152,7 +180,11 @@ const AddEmployeeDialog = () => {
                 onClick={showDialogHandler}
               />
             </div>
-            <Button text="Add Dependent" ariaLabel="add dependent button" />
+            <Button
+              text="Add Dependent"
+              ariaLabel="add dependent button"
+              onClick={addDependentHandler}
+            />
             <div className={actionStyles.submit}>
               <Button
                 text="Submit"

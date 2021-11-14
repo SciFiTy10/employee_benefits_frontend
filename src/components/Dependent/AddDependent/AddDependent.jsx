@@ -5,7 +5,6 @@ import DependentTypeSection from "../../PersonalInformation/DependentTypeSection
 import NameSection from "../../PersonalInformation/NameSection/NameSection";
 import ContactSection from "../../PersonalInformation/ContactSection/ContactSection";
 import AddressSection from "../../PersonalInformation/AddressSection/AddressSection";
-import ActionSection from "../../Section/ActionSection/ActionSection";
 import SameAddressSection from "../../PersonalInformation/SameAddressSection/SameAddressSection";
 
 const AddDependent = () => {
@@ -19,9 +18,6 @@ const AddDependent = () => {
         <SameAddressSection />
         <AddressSection />
       </article>
-      <ActionSection>
-        <Button text="Add Another Dependent" ariaLabel="add dependent button" />
-      </ActionSection>
     </section>
   );
 };
