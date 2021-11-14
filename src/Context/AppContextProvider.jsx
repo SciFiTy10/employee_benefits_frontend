@@ -4,51 +4,54 @@ import { employeeListReducer } from "../Reducers/employeeListReducer";
 
 const AppContextProvider = (props) => {
   //create state for managing the employeeList
-  const [employeeList, dispatchEmployeeList] = useReducer(employeeListReducer, [
-    {
-      employeeId: 1,
-      firstName: "Pat",
-      lastName: "Johnson",
-      email: "pjohnson@gmail.com",
-      phoneNumber: 5555555555,
-      addressLine1: "123 Fourth St",
-      addressLine2: "",
-      city: "Schaumburg",
-      state: "Illinois",
-      zip: 60014,
-      costPerCheck: 38.46,
-      dependents: [
-        {
-          dependentId: 1,
-          dependentType: "Spouse",
-          firstName: "Jaimie",
-          lastName: "Johnson",
-          email: "pjohnson@gmail.com",
-          phoneNumber: 6666666666,
-          addressLine1: "123 Fourth St",
-          addressLine2: "",
-          city: "Schaumburg",
-          state: "Illinois",
-          zip: 60014,
-          costPerCheck: 19.23,
-        },
-        {
-          dependentId: 2,
-          dependentType: "Child",
-          firstName: "Jimmy",
-          lastName: "Johnson",
-          email: "",
-          phoneNumber: 0,
-          addressLine1: "123 Fourth St",
-          addressLine2: "",
-          city: "Schaumburg",
-          state: "Illinois",
-          zip: 60014,
-          costPerCheck: 19.23,
-        },
-      ],
-    },
-  ]);
+  const [employeeList, dispatchEmployeeList] = useReducer(employeeListReducer, {
+    grandTotal: 76.92,
+    employees: [
+      {
+        employeeId: 1,
+        firstName: "Pat",
+        lastName: "Johnson",
+        email: "pjohnson@gmail.com",
+        phoneNumber: 5555555555,
+        addressLine1: "123 Fourth St",
+        addressLine2: "",
+        city: "Schaumburg",
+        state: "Illinois",
+        zip: 60014,
+        costPerCheck: 38.46,
+        dependents: [
+          {
+            dependentId: 1,
+            dependentType: "Spouse",
+            firstName: "Jaimie",
+            lastName: "Johnson",
+            email: "pjohnson@gmail.com",
+            phoneNumber: 6666666666,
+            addressLine1: "123 Fourth St",
+            addressLine2: "",
+            city: "Schaumburg",
+            state: "Illinois",
+            zip: 60014,
+            costPerCheck: 19.23,
+          },
+          {
+            dependentId: 2,
+            dependentType: "Child",
+            firstName: "Jimmy",
+            lastName: "Johnson",
+            email: "",
+            phoneNumber: 0,
+            addressLine1: "123 Fourth St",
+            addressLine2: "",
+            city: "Schaumburg",
+            state: "Illinois",
+            zip: 60014,
+            costPerCheck: 19.23,
+          },
+        ],
+      },
+    ],
+  });
 
   //handler function for adding an item to the employeeList
   const employeeListAddHandler = (item) => {

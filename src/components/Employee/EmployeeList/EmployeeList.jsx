@@ -10,7 +10,7 @@ const EmployeeList = () => {
 
   return (
     <div className={employeeListStyles.employeeList}>
-      {ctx.employeeList.map((employee) => {
+      {ctx.employeeList.employees.map((employee) => {
         return (
           <>
             <Employee key={employee.employeeId} employee={employee} />
