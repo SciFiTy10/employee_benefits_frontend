@@ -1,0 +1,12 @@
+@import "../../../Style/App.module.scss";
+
+.actionSection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  background-color: $light-color;
+  padding: 8px;
+  .submit {
+    padding-left: 8px;
+  }
+}

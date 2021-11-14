@@ -1,14 +1,14 @@
 import AppContextProvider from "./Context/AppContextProvider";
-import Header from "./Components/Layout/Header/Header";
-import Main from "./Components/Layout/Main/Main";
+import AppHeader from "./Components/Layout/AppHeader/AppHeader";
+import AppMain from "./Components/Layout/AppMain/AppMain";
 import appStyles from "./Style/App.module.scss";
 import "./App.css";
 const App = () => {
   return (
     <div className={appStyles.app}>
       <AppContextProvider>
-        <Header />
-        <Main />
+        <AppHeader />
+        <AppMain />
       </AppContextProvider>
     </div>
   );

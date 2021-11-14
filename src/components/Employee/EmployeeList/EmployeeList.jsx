@@ -8,7 +8,7 @@ const EmployeeList = () => {
   const ctx = useContext(AppContext);
 
   return (
-    <section className={employeeListStyles.employeeList}>
+    <div className={employeeListStyles.employeeList}>
       {ctx.employeeList.map((employee) => {
         return (
           <>
@@ -28,7 +28,7 @@ const EmployeeList = () => {
           </>
         );
       })}
-    </section>
+    </div>
   );
 };
 

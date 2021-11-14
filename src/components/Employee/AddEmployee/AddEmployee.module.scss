@@ -1,0 +1,21 @@
+@import "../../../Style/App.module.scss";
+
+.addEmployee {
+  width: 70%;
+  @include section-spacing;
+  @include card;
+  background-color: $primary-color;
+
+  @include respond(xs) {
+    width: 100%;
+  }
+  @include respond(sm) {
+    width: 100%;
+  }
+  @include respond(md) {
+    width: 100%;
+  }
+  @include respond(lg) {
+    width: 80%;
+  }
+}
