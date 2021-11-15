@@ -50,7 +50,58 @@ const AddEmployeeDialog = () => {
   const addDependentHandler = () => {
     //double check that there aren't any missing fields first
     if (employee.dependents.length !== 0) {
-      return;
+      /*look up by each field whether other dependents are mising information*/
+
+      //check to ensure there aren't any dependents with missing dependentType
+      const missingDependentType = employee.dependents.find(
+        (dependent) => dependent.dependentType === ""
+      );
+      if (missingDependentType !== undefined) {
+        //send an alert for this to be addressed
+        ctx.alertHandler({
+          showAlert: true,
+          isSuccess: false,
+          message: `Before adding another dependent, please select a dependent type for ${
+            missingDependentType.firstName !== ""
+              ? missingDependentType.firstName
+              : `dependent ${missingDependentType.dependentId}`
+          }.`,
+        });
+        //stop execution of the method
+        return;
+      }
+      //check to ensure there aren't any dependents with missing first name
+      const missingFirstName = employee.dependents.find(
+        (dependent) => dependent.firstName === ""
+      );
+      if (missingFirstName !== undefined) {
+        //send an alert for this to be addressed
+        ctx.alertHandler({
+          showAlert: true,
+          isSuccess: false,
+          message: `Before adding another dependent, please select a first name for dependent ${missingFirstName.dependentId}.`,
+        });
+        //stop execution of the method
+        return;
+      }
+      //check to ensure there aren't any dependents with missing last name
+      const missingLastName = employee.dependents.find(
+        (dependent) => dependent.lastName === ""
+      );
+      if (missingLastName !== undefined) {
+        //send an alert for this to be addressed
+        ctx.alertHandler({
+          showAlert: true,
+          isSuccess: false,
+          message: `Before adding another dependent, please select a last name for ${
+            missingLastName.firstName !== ""
+              ? missingLastName.firstName
+              : `dependent ${missingLastName.dependentId}`
+          }.`,
+        });
+        //stop execution of the method
+        return;
+      }
     }
     //push a new dependent onto the state
     const currentEmployee = { ...employee };
