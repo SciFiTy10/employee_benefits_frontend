@@ -11,8 +11,6 @@ import contentStyles from "./Content.module.scss";
 const Content = () => {
   //grab the context object
   const ctx = useContext(AppContext);
-  //test
-  ctx.employeeList.employees.length = 0;
   //handler for opening the dialog
   const showDialogHandler = () => {
     ctx.addEmployeeDialogHandler(true);
