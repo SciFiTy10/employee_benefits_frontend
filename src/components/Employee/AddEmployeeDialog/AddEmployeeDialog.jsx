@@ -6,6 +6,7 @@ import NameSection from "../../PersonalInformation/NameSection/NameSection";
 import ContactSection from "../../PersonalInformation/ContactSection/ContactSection";
 import AddressSection from "../../PersonalInformation/AddressSection/AddressSection";
 import ActionSection from "../../Section/ActionSection/ActionSection";
+import axios from "axios";
 
 //styles
 import addEmployeeDialogStyles from "./AddEmployeeDialog.module.scss";
@@ -531,6 +532,35 @@ const AddEmployeeDialog = () => {
       //stop execution of the method
       return;
     }
+
+    //clear to submit!
+    axios({
+      method: "post",
+      headers: {
+        "content-type": "application/json",
+      },
+      url: "https://localhost:5001/api/employee/CreateEmployee",
+      data: {
+        employee: employee,
+      },
+    })
+      .then((response) => {
+        ctx.alertHandler({
+          showAlert: true,
+          isSuccess: true,
+          message: "Success! The Employee was added.",
+        });
+        //set the new employee list state
+        ctx.employeeListAddHandler(response.data);
+      })
+      .catch((error) => {
+        //display the error
+        ctx.alertHandler({
+          showAlert: true,
+          isSuccess: false,
+          message: "An error occurred during the request",
+        });
+      });
   };
   //handler for setting the firstName
   const firstNameHandler = (event) => {

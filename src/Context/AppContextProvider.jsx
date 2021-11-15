@@ -37,13 +37,9 @@ const AppContextProvider = (props) => {
   }, []);
 
   //handler function for adding an item to the employeeList
-  // const employeeListAddHandler = (item) => {
-  //   //ensure the item is non-empty
-  //   if (item) {
-  //     //dispatch the item to the reducer
-  //     dispatchEmployeeList({ type: "ADD_TO_EMPLOYEE_LIST", payload: item });
-  //   }
-  // };
+  const employeeListAddHandler = (employee) => {
+    setEmployeeList(employee);
+  };
   //handler function for showing the add employee dialog
   const addEmployeeDialogHandler = (isOpen) => {
     setShowAddEmployeeDialog(isOpen);
@@ -60,7 +56,7 @@ const AppContextProvider = (props) => {
     <AppContext.Provider
       value={{
         employeeList,
-
+        employeeListAddHandler,
         showAddEmployeeDialog,
         addEmployeeDialogHandler,
         alert,
