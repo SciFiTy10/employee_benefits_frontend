@@ -18,6 +18,24 @@ const AddDependent = (props) => {
     //update the parent state's dependent data with this new value
     updateDependentHandler(currentDependent);
   };
+  //handler for updating the first name
+  const firstNameHandler = (event) => {
+    //copy the current dependent
+    const currentDependent = { ...dependent };
+    //update the first name
+    currentDependent.firstName = event.target.value;
+    //update the parent state's dependent data with this new value
+    updateDependentHandler(currentDependent);
+  };
+  //handler for updating the lastName
+  const lastNameHandler = (event) => {
+    //copy the current dependent
+    const currentDependent = { ...dependent };
+    //update the last name
+    currentDependent.lastName = event.target.value;
+    //update the parent state's dependent data with this new value
+    updateDependentHandler(currentDependent);
+  };
   return (
     <section>
       <HeaderSection text="Add A New Dependent" />
@@ -27,7 +45,13 @@ const AddDependent = (props) => {
           onDependentTypeChange={dependentTypeHandler}
           id={`dependent ${dependent.dependentId}`}
         />
-        <NameSection />
+        <NameSection
+          firstName={dependent.firstName}
+          lastName={dependent.lastName}
+          onFirstNameChange={firstNameHandler}
+          onLastNameChange={lastNameHandler}
+          id={`dependent ${dependent.dependentId}`}
+        />
         <ContactSection />
         <SameAddressSection />
         <AddressSection />
