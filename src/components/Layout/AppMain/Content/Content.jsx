@@ -21,7 +21,7 @@ const Content = () => {
         <Alert alert={ctx.alert} alertHandler={ctx.alertHandler} />
       )}
       {ctx.showAddEmployeeDialog && <AddEmployeeDialog />}
-      {ctx.employeeList.employees.length === 0 ? (
+      {ctx.employeeList === null ? (
         <NoEmployees />
       ) : (
         <>

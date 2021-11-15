@@ -16,12 +16,14 @@ const SummaryEmployeeTotal = (props) => {
       : employee.costPerCheck;
   return (
     <section>
-      <SummaryHeader text="Total Per Check" />
+      <SummaryHeader text="Employee Total" />
       <article>
         <div className={summaryEmployeeTotalStyles.totalPerCheck}>
-          <span>${totalPerCheck}</span>
+          <span>Per Check: ${totalPerCheck}</span>
         </div>
-        <div></div>
+        <div className={summaryEmployeeTotalStyles.totalPerCheck}>
+          <span>Per Year: ${totalPerCheck * 26}</span>
+        </div>
       </article>
     </section>
   );

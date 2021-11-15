@@ -4,7 +4,7 @@ import axios from "axios";
 
 const AppContextProvider = (props) => {
   //create state for managing the employeeList
-  const [employeeList, setEmployeeList] = useState({});
+  const [employeeList, setEmployeeList] = useState(null);
   //create state for opening the add employee dialog
   const [showAddEmployeeDialog, setShowAddEmployeeDialog] = useState(false);
   //create state for the alert
@@ -29,10 +29,10 @@ const AppContextProvider = (props) => {
         setAlert({
           showAlert: true,
           isSuccess: false,
-          message: error.response.data,
+          message: "An error occurred during the request",
         });
         //set the initial state to empty
-        setEmployeeList({});
+        setEmployeeList(null);
       });
   }, []);
 

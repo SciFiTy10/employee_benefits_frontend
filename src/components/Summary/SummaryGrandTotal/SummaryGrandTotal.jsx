@@ -6,7 +6,10 @@ const SummaryGrandTotal = (props) => {
     <section className={summaryGrandTotalStyles.grandTotalSection}>
       <SummaryHeader text="Grand Total" />
       <div className={summaryGrandTotalStyles.grandTotal}>
-        <span>${props.grandTotal}</span>
+        <span>Per Check: ${props.grandTotal}</span>
+      </div>
+      <div className={summaryGrandTotalStyles.grandTotal}>
+        <span>Per Year: ${props.grandTotal * 26}</span>
       </div>
       <hr />
     </section>
