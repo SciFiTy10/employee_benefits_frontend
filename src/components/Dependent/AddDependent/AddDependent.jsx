@@ -15,6 +15,12 @@ const AddDependent = (props) => {
     const currentDependent = { ...dependent };
     //update the dependentType
     currentDependent.dependentType = value;
+    //if the dependentType is child
+    if (value === "Child") {
+      //set the email and phoneNumber values to empty
+      currentDependent.email = "";
+      currentDependent.phoneNumber = "";
+    }
     //update the parent state's dependent data with this new value
     updateDependentHandler(currentDependent);
   };
@@ -36,6 +42,69 @@ const AddDependent = (props) => {
     //update the parent state's dependent data with this new value
     updateDependentHandler(currentDependent);
   };
+  //handler for updating the email
+  const emailHandler = (event) => {
+    //copy the current dependent
+    const currentDependent = { ...dependent };
+    //update the email
+    currentDependent.email = event.target.value;
+    //update the parent state's dependent data with this new value
+    updateDependentHandler(currentDependent);
+  };
+  //handler for updating the phoneNumber
+  const phoneNumberHandler = (event) => {
+    //copy the current dependent
+    const currentDependent = { ...dependent };
+    //update the phoneNumber
+    currentDependent.phoneNumber = event.target.value;
+    //update the parent state's dependent data with this new value
+    updateDependentHandler(currentDependent);
+  };
+  //handler for updating the addressLine1
+  const addressLine1Handler = (event) => {
+    //copy the current dependent
+    const currentDependent = { ...dependent };
+    //update the addressLine1
+    currentDependent.addressLine1 = event.target.value;
+    //update the parent state's dependent data with this new value
+    updateDependentHandler(currentDependent);
+  };
+  //handler for updating the addressLine2
+  const addressLine2Handler = (event) => {
+    //copy the current dependent
+    const currentDependent = { ...dependent };
+    //update the addressLine2
+    currentDependent.addressLine2 = event.target.value;
+    //update the parent state's dependent data with this new value
+    updateDependentHandler(currentDependent);
+  };
+  //handler for updating the city
+  const cityHandler = (event) => {
+    //copy the current dependent
+    const currentDependent = { ...dependent };
+    //update the city
+    currentDependent.city = event.target.value;
+    //update the parent state's dependent data with this new value
+    updateDependentHandler(currentDependent);
+  };
+  //handler for updating the state
+  const stateHandler = (event) => {
+    //copy the current dependent
+    const currentDependent = { ...dependent };
+    //update the state
+    currentDependent.state = event.target.value;
+    //update the parent state's dependent data with this new value
+    updateDependentHandler(currentDependent);
+  };
+  //handler for updating the zip
+  const zipHandler = (event) => {
+    //copy the current dependent
+    const currentDependent = { ...dependent };
+    //update the zip
+    currentDependent.zip = event.target.value;
+    //update the parent state's dependent data with this new value
+    updateDependentHandler(currentDependent);
+  };
   return (
     <section>
       <HeaderSection text="Add A New Dependent" />
@@ -52,9 +121,29 @@ const AddDependent = (props) => {
           onLastNameChange={lastNameHandler}
           id={`dependent ${dependent.dependentId}`}
         />
-        <ContactSection />
+        {dependent.dependentType !== "Child" && (
+          <ContactSection
+            email={dependent.email}
+            phoneNumber={dependent.phoneNumber}
+            onEmailChange={emailHandler}
+            onPhoneNumberChange={phoneNumberHandler}
+            id={`dependent ${dependent.dependentId}`}
+          />
+        )}
         <SameAddressSection />
-        <AddressSection />
+        <AddressSection
+          addressLine1={dependent.addressLine1}
+          addressLine2={dependent.addressLine2}
+          city={dependent.city}
+          state={dependent.state}
+          zip={dependent.zip}
+          onAddressLine1Change={addressLine1Handler}
+          onAddressLine2Change={addressLine2Handler}
+          onCityChange={cityHandler}
+          onStateChange={stateHandler}
+          onZipChange={zipHandler}
+          id={`dependent ${dependent.dependentId}`}
+        />
       </article>
     </section>
   );
