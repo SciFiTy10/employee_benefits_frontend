@@ -32,8 +32,14 @@ describe("add dependent", () => {
     userEvent.click(getByLabelText("add employee button"));
     //click the add dependent button
     userEvent.click(getByLabelText("add dependent button"));
-    //check whether the add a new dependent text is displayed
-    expect(screen.getByText("Add A New Dependent")).toBeInTheDocument();
+    //click the add dependent button
+    userEvent.click(getByLabelText("add dependent button"));
+    //check whether the error text is displayed
+    expect(
+      screen.getByText(
+        "Before adding another dependent, please select a dependent type for dependent 1."
+      )
+    ).toBeInTheDocument();
   });
 
   //   it("throws an error when an employee doesn't have a first name", () => {

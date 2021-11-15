@@ -8,7 +8,7 @@ const DependentTypeSection = (props) => {
   };
   return (
     <div className={dependentTypeSectionStyles.dependentTypeSection}>
-      <label for="dependent-select">Dependent Type:</label>
+      <label htmlFor="dependent-select">Dependent Type:</label>
       <select
         name="dependent-type"
         id="dependent-select"

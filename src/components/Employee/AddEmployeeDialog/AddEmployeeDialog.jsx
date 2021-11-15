@@ -19,12 +19,12 @@ const AddEmployeeDialog = () => {
     firstName: "",
     lastName: "",
     email: "",
-    phoneNumber: null,
+    phoneNumber: "",
     addressLine1: "",
     addressLine2: "",
     city: "",
     state: "",
-    zip: null,
+    zip: "",
     dependents: [],
   });
   //grab the context
@@ -250,12 +250,12 @@ const AddEmployeeDialog = () => {
       firstName: "",
       lastName: "",
       email: "",
-      phoneNumber: null,
+      phoneNumber: "",
       addressLine1: "",
       addressLine2: "",
       city: "",
       state: "",
-      zip: null,
+      zip: "",
     });
     //update the state
     setEmployee(currentEmployee);
