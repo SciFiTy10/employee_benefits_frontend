@@ -130,6 +130,115 @@ const AddEmployeeDialog = () => {
         //stop execution of the method
         return;
       }
+      //check to ensure there aren't any dependents with missing email
+      const missingEmail = employee.dependents.find(
+        (dependent) => dependent.email === ""
+      );
+      if (missingEmail !== undefined) {
+        //send an alert for this to be addressed
+        ctx.alertHandler({
+          showAlert: true,
+          isSuccess: false,
+          message: `Before adding another dependent, please select an email for ${
+            missingEmail.firstName !== ""
+              ? missingEmail.firstName
+              : `dependent ${missingEmail.dependentId}`
+          }.`,
+        });
+        //stop execution of the method
+        return;
+      }
+      //check to ensure there aren't any dependents with missing phoneNumber
+      const missingPhoneNumber = employee.dependents.find(
+        (dependent) =>
+          dependent.phoneNumber === null || dependent.phoneNumber === ""
+      );
+      if (missingPhoneNumber !== undefined) {
+        //send an alert for this to be addressed
+        ctx.alertHandler({
+          showAlert: true,
+          isSuccess: false,
+          message: `Before adding another dependent, please select a phone number for ${
+            missingPhoneNumber.firstName !== ""
+              ? missingPhoneNumber.firstName
+              : `dependent ${missingPhoneNumber.dependentId}`
+          }.`,
+        });
+        //stop execution of the method
+        return;
+      }
+      //check to ensure there aren't any dependents with missing addressLine1
+      const missingAddressLine1 = employee.dependents.find(
+        (dependent) => dependent.addressLine1 === ""
+      );
+      if (missingAddressLine1 !== undefined) {
+        //send an alert for this to be addressed
+        ctx.alertHandler({
+          showAlert: true,
+          isSuccess: false,
+          message: `Before adding another dependent, please select an addressLine1 for ${
+            missingAddressLine1.firstName !== ""
+              ? missingAddressLine1.firstName
+              : `dependent ${missingAddressLine1.dependentId}`
+          }.`,
+        });
+        //stop execution of the method
+        return;
+      }
+      //check to ensure there aren't any dependents with missing city
+      const missingCity = employee.dependents.find(
+        (dependent) => dependent.city === ""
+      );
+      if (missingCity !== undefined) {
+        //send an alert for this to be addressed
+        ctx.alertHandler({
+          showAlert: true,
+          isSuccess: false,
+          message: `Before adding another dependent, please select a city for ${
+            missingCity.firstName !== ""
+              ? missingCity.firstName
+              : `dependent ${missingCity.dependentId}`
+          }.`,
+        });
+        //stop execution of the method
+        return;
+      }
+      //check to ensure there aren't any dependents with missing state
+      const missingState = employee.dependents.find(
+        (dependent) => dependent.state === ""
+      );
+      if (missingState !== undefined) {
+        //send an alert for this to be addressed
+        ctx.alertHandler({
+          showAlert: true,
+          isSuccess: false,
+          message: `Before adding another dependent, please select a state for ${
+            missingState.firstName !== ""
+              ? missingState.firstName
+              : `dependent ${missingState.dependentId}`
+          }.`,
+        });
+        //stop execution of the method
+        return;
+      }
+      //check to ensure there aren't any dependents with missing zip
+      const missingZip = employee.dependents.find(
+        (dependent) => dependent.zip === null || dependent.zip === ""
+      );
+      if (missingZip !== undefined) {
+        //send an alert for this to be addressed
+        ctx.alertHandler({
+          showAlert: true,
+          isSuccess: false,
+          message: `Before adding another dependent, please select a zip code for ${
+            missingZip.firstName !== ""
+              ? missingZip.firstName
+              : `dependent ${missingZip.dependentId}`
+          }.`,
+        });
+        //stop execution of the method
+        return;
+      }
     }
     //push a new dependent onto the state
     const currentEmployee = { ...employee };
