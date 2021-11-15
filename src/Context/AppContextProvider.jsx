@@ -1,57 +1,10 @@
-import React, { useState, useReducer } from "react";
+import React, { useState, useEffect } from "react";
 import { AppContext } from "./App-Context";
-import { employeeListReducer } from "../Reducers/employeeListReducer";
+import axios from "axios";
 
 const AppContextProvider = (props) => {
   //create state for managing the employeeList
-  const [employeeList, dispatchEmployeeList] = useReducer(employeeListReducer, {
-    grandTotal: 76.92,
-    employees: [
-      {
-        employeeId: 1,
-        firstName: "Pat",
-        lastName: "Johnson",
-        email: "pjohnson@gmail.com",
-        phoneNumber: 5555555555,
-        addressLine1: "123 Fourth St",
-        addressLine2: "",
-        city: "Schaumburg",
-        state: "Illinois",
-        zip: 60014,
-        costPerCheck: 38.46,
-        dependents: [
-          {
-            dependentId: 1,
-            dependentType: "Spouse",
-            firstName: "Jaimie",
-            lastName: "Johnson",
-            email: "pjohnson@gmail.com",
-            phoneNumber: 6666666666,
-            addressLine1: "123 Fourth St",
-            addressLine2: "",
-            city: "Schaumburg",
-            state: "Illinois",
-            zip: 60014,
-            costPerCheck: 19.23,
-          },
-          {
-            dependentId: 2,
-            dependentType: "Child",
-            firstName: "Jimmy",
-            lastName: "Johnson",
-            email: "",
-            phoneNumber: 0,
-            addressLine1: "123 Fourth St",
-            addressLine2: "",
-            city: "Schaumburg",
-            state: "Illinois",
-            zip: 60014,
-            costPerCheck: 19.23,
-          },
-        ],
-      },
-    ],
-  });
+  const [employeeList, setEmployeeList] = useState({});
   //create state for opening the add employee dialog
   const [showAddEmployeeDialog, setShowAddEmployeeDialog] = useState(false);
   //create state for the alert
@@ -61,14 +14,36 @@ const AppContextProvider = (props) => {
     message: "",
   });
 
+  //on initial render, query the current employeeList
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: "https://localhost:5001/api/employee",
+    })
+      .then((response) => {
+        //set the initial state
+        setEmployeeList(response.data);
+      })
+      .catch((error) => {
+        //display the error
+        setAlert({
+          showAlert: true,
+          isSuccess: false,
+          message: error.response.data,
+        });
+        //set the initial state to empty
+        setEmployeeList({});
+      });
+  }, []);
+
   //handler function for adding an item to the employeeList
-  const employeeListAddHandler = (item) => {
-    //ensure the item is non-empty
-    if (item) {
-      //dispatch the item to the reducer
-      dispatchEmployeeList({ type: "ADD_TO_EMPLOYEE_LIST", payload: item });
-    }
-  };
+  // const employeeListAddHandler = (item) => {
+  //   //ensure the item is non-empty
+  //   if (item) {
+  //     //dispatch the item to the reducer
+  //     dispatchEmployeeList({ type: "ADD_TO_EMPLOYEE_LIST", payload: item });
+  //   }
+  // };
   //handler function for showing the add employee dialog
   const addEmployeeDialogHandler = (isOpen) => {
     setShowAddEmployeeDialog(isOpen);
@@ -85,7 +60,7 @@ const AppContextProvider = (props) => {
     <AppContext.Provider
       value={{
         employeeList,
-        employeeListAddHandler,
+
         showAddEmployeeDialog,
         addEmployeeDialogHandler,
         alert,
