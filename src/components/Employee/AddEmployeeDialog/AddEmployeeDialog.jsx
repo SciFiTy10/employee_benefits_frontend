@@ -543,15 +543,25 @@ const AddEmployeeDialog = () => {
       data: employee,
     })
       .then((response) => {
-        ctx.alertHandler({
-          showAlert: true,
-          isSuccess: true,
-          message: "Success! The Employee was added.",
-        });
-        //set the new employee list state
-        ctx.employeeListAddHandler(response.data);
-        //close the dialog
-        closeDialogHandler();
+        //check if the upload was successful
+        if (response.data.success) {
+          ctx.alertHandler({
+            showAlert: true,
+            isSuccess: true,
+            message: response.data.message,
+          });
+          //set the new employee list state
+          ctx.employeeListAddHandler(response.data.employeeList);
+          //close the dialog
+          closeDialogHandler();
+        } else {
+          //display the error
+          ctx.alertHandler({
+            showAlert: true,
+            isSuccess: false,
+            message: response.data.message,
+          });
+        }
       })
       .catch((error) => {
         //display the error
