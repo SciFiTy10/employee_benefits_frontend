@@ -1,0 +1,17 @@
+@import "../../../Style/App.module.scss";
+
+.dependent {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10%;
+  .name {
+    padding-bottom: 4%;
+  }
+  .contact {
+    padding-bottom: 4%;
+  }
+  .costPerCheck {
+    font-weight: bold;
+    padding-bottom: 4%;
+  }
+}

@@ -1,0 +1,24 @@
+@import "../../../Style/App.module.scss";
+
+.nameSection {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: $light-color;
+  justify-content: center;
+  padding: 5px;
+  .firstName {
+    padding-right: 5%;
+  }
+  .lastName {
+    padding-left: 5%;
+  }
+  @include respond(xs) {
+    .firstName,
+    .lastName {
+      width: 90%;
+      padding-left: 0px;
+      padding-right: 0px;
+      padding-bottom: 2%;
+    }
+  }
+}

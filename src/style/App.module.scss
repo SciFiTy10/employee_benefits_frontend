@@ -1,0 +1,75 @@
+.app {
+  height: 100%;
+}
+
+//app background color
+$primary-color: #323e48;
+$secondary-color: linear-gradient(to right, #ed2024 0, #ff8f1c 100%);
+$light-color: white;
+//text colors
+$primary-text-color: black;
+$secondary-text-color: white;
+//alert colors
+$success: rgb(56, 142, 60);
+$error: rgb(211, 47, 47);
+//border-radius
+$border-radius: 4px;
+
+/* Mixins */
+@mixin section-spacing {
+  margin-bottom: 2%;
+  margin-top: 2%;
+}
+
+@mixin card {
+  background-color: $secondary-text-color;
+  border-radius: $border-radius;
+  box-shadow: rgb(0 0 0 / 20%) 0px 2px 1px -1px,
+    rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 12%) 0px 1px 3px 0px;
+  border: 1px $secondary-text-color solid;
+}
+
+// MEDIA QUERY MANAGER
+/* Per https://mui.com/customization/breakpoints/
+0 - 600px:          xs
+600px - 900px       sm
+900px - 1200px      md
+[1200px - 1536px]   lg
+1536px +            xl
+
+Mixin below is based off of:
+1rem = 16px
+*/
+@mixin respond($breakpoint) {
+  // xs
+  @if $breakpoint == xs {
+    @media (max-width: 37.5rem) {
+      @content;
+    } //0 - 600px
+  }
+  // sm
+  @if $breakpoint == sm {
+    @media (min-width: 37.5rem) and (max-width: 56.25rem) {
+      @content;
+    } //900px
+  }
+  // md
+  @if $breakpoint == md {
+    @media (min-width: 56.25rem) and (max-width: 75rem) {
+      @content;
+    } //1200px
+  }
+  //lg
+  @if $breakpoint == lg {
+    @media (min-width: 75rem) and (max-width: 96rem) {
+      @content;
+    }
+  } //1536px
+
+  // xl
+  @if $breakpoint == xl {
+    @media (min-width: 965rem) {
+      @content;
+    } //1536px +
+  }
+}

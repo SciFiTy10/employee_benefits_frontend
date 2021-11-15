@@ -1,0 +1,12 @@
+@import "../../../style/App.module.scss";
+
+.header {
+  background-color: $primary-color;
+  min-height: 10%;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $secondary-text-color;
+}
