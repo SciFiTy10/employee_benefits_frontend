@@ -1,0 +1,24 @@
+@import "../../../Style/App.module.scss";
+
+.contactSection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: $light-color;
+  padding: 5px;
+  .email {
+    padding-right: 5%;
+  }
+  .phoneNumber {
+    padding-left: 5%;
+  }
+  @include respond(xs) {
+    .email,
+    .phoneNumber {
+      width: 90%;
+      padding-left: 0px;
+      padding-right: 0px;
+      padding-bottom: 2%;
+    }
+  }
+}

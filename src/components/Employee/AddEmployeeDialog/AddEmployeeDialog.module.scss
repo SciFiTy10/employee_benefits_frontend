@@ -1,0 +1,32 @@
+@import "../../../Style/App.module.scss";
+
+.addEmployeeDialog {
+  width: 70%;
+  max-height: 90%;
+  overflow-y: auto;
+  @include section-spacing;
+  @include card;
+  background-color: $primary-color;
+
+  @include respond(xs) {
+    width: 90%;
+  }
+  @include respond(sm) {
+    width: 90%;
+  }
+  @include respond(lg) {
+    width: 80%;
+  }
+}
+.overlay {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.7);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,25 @@
+@import "../../../../Style/App.module.scss";
+
+.content {
+  padding-top: 10%;
+  margin-left: 10%;
+  margin-right: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include respond(xs) {
+    padding-top: 25%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  @include respond(sm) {
+    padding-top: 15%;
+  }
+  @include respond(md) {
+    padding-top: 10%;
+  }
+  @include respond(lg) {
+    padding-top: 10%;
+  }
+}

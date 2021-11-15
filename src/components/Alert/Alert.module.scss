@@ -1,0 +1,44 @@
+@import "../../style/App.module.scss";
+
+.alert {
+  position: absolute;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 2%;
+  border-radius: $border-radius;
+  padding: 8px;
+  width: 30%;
+  z-index: 99999;
+
+  @include respond(xs) {
+    width: 90%;
+  }
+  @include respond(sm) {
+    width: 50%;
+  }
+  @include respond(md) {
+    width: 40%;
+  }
+  @include respond(lg) {
+    width: 30%;
+  }
+}
+.closeAlert {
+  cursor: pointer;
+  &:hover {
+    color: $primary-text-color;
+  }
+}
+
+.success {
+  background-color: $success;
+  color: $secondary-text-color;
+  border: 1px $success solid;
+}
+
+.error {
+  background-color: $error;
+  color: $secondary-text-color;
+  border: 1px $error solid;
+}

@@ -1,0 +1,6 @@
+@import "../../Style/App.module.scss";
+
+.summary {
+  width: 100%;
+  @include card;
+}

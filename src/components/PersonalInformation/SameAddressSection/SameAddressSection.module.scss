@@ -1,0 +1,21 @@
+@import "../../../Style/App.module.scss";
+
+.sameAddressSection {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: $light-color;
+  justify-content: center;
+  padding: 5px;
+  label {
+    padding: 5px;
+  }
+  @include respond(xs) {
+    .label,
+    .select {
+      width: 90%;
+      padding-left: 0px;
+      padding-right: 0px;
+      padding-bottom: 2%;
+    }
+  }
+}
