@@ -534,15 +534,21 @@ const AddEmployeeDialog = () => {
     }
 
     //clear to submit!
+    //(works if we use data: {employee: employee})
+    //update datatypes
+    employee.phoneNumber = Number(employee.phoneNumber);
+    employee.zip = Number(employee.zip);
+    employee.dependents.forEach((dependent) => {
+      dependent.phoneNumber = Number(dependent.phoneNumber);
+      dependent.zip = Number(dependent.zip);
+    });
     axios({
       method: "post",
       headers: {
         "content-type": "application/json",
       },
       url: "https://localhost:5001/api/employee/CreateEmployee",
-      data: {
-        employee: employee,
-      },
+      data: employee,
     })
       .then((response) => {
         ctx.alertHandler({
