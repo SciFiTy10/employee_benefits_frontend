@@ -7,7 +7,10 @@ const Summary = (props) => {
   return (
     <section className={summaryStyles.summary}>
       <SectionHeader text="Summary of Benefit Costs" />
-      <SummaryGrandTotal grandTotal={props.employeeList.grandTotal} />
+      <SummaryGrandTotal
+        grandTotalPerCheck={props.employeeList.grandTotalPerCheck}
+        grandTotalPerYear={props.employeeList.grandTotalPerYear}
+      />
       <EmployeeList employeeList={props.employeeList} />
     </section>
   );

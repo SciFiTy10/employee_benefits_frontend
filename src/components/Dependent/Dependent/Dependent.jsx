@@ -17,7 +17,7 @@ const Dependent = (props) => {
     city,
     state,
     zip,
-    costPerCheck,
+    dependentCostPerCheck,
   } = props.dependent;
 
   return (
@@ -39,7 +39,7 @@ const Dependent = (props) => {
           />
         </address>
         <address>
-          <SummaryCostPerCheck costPerCheck={costPerCheck} />
+          <SummaryCostPerCheck costPerCheck={dependentCostPerCheck} />
         </address>
       </article>
     </section>

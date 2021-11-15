@@ -18,7 +18,7 @@ const Employee = (props) => {
     city,
     state,
     zip,
-    costPerCheck,
+    employeeCostPerCheck,
   } = props.employee;
 
   return (
@@ -37,7 +37,7 @@ const Employee = (props) => {
           />
         </address>
         <address>
-          <SummaryCostPerCheck costPerCheck={costPerCheck} />
+          <SummaryCostPerCheck costPerCheck={employeeCostPerCheck} />
         </address>
       </article>
     </section>
