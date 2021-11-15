@@ -33,6 +33,34 @@ const AddEmployeeDialog = () => {
   const closeDialogHandler = () => {
     ctx.addEmployeeDialogHandler(false);
   };
+  //handler for updating when same address is checked
+  const updateDependentAddressHandler = (updatedDependent, isChecked) => {
+    //copy the existing state
+    const currentEmployee = { ...employee };
+    //find the current dependent
+    const currentDependentIndex = currentEmployee.dependents.findIndex(
+      (dependent) => dependent.dependentId === updatedDependent.dependentId
+    );
+    //if checked is true, update the address information based on the parent
+    //update the currentDependent's info
+    currentEmployee.dependents[currentDependentIndex].addressLine1 = isChecked
+      ? employee.addressLine1
+      : "";
+    currentEmployee.dependents[currentDependentIndex].addressLine2 = isChecked
+      ? employee.addressLine2
+      : "";
+    currentEmployee.dependents[currentDependentIndex].city = isChecked
+      ? employee.city
+      : "";
+    currentEmployee.dependents[currentDependentIndex].state = isChecked
+      ? employee.state
+      : "";
+    currentEmployee.dependents[currentDependentIndex].zip = isChecked
+      ? employee.zip
+      : "";
+    //update the state
+    setEmployee(currentEmployee);
+  };
   //handler for updating a given dependent
   const updateDependentHandler = (updatedDependent) => {
     //copy the existing state
@@ -335,6 +363,7 @@ const AddEmployeeDialog = () => {
               key={dependent.dependentId}
               dependent={dependent}
               updateDependentHandler={updateDependentHandler}
+              updateDependentAddressHandler={updateDependentAddressHandler}
             />
           ))}
           <ActionSection>

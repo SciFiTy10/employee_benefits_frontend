@@ -60,6 +60,11 @@ const AddDependent = (props) => {
     //update the parent state's dependent data with this new value
     updateDependentHandler(currentDependent);
   };
+  //handler for the sameAddress checkbox
+  const sameAddressHandler = (event) => {
+    //update the parent
+    props.updateDependentAddressHandler(dependent, event.target.checked);
+  };
   //handler for updating the addressLine1
   const addressLine1Handler = (event) => {
     //copy the current dependent
@@ -130,7 +135,10 @@ const AddDependent = (props) => {
             id={`dependent ${dependent.dependentId}`}
           />
         )}
-        <SameAddressSection />
+        <SameAddressSection
+          onSameAddressChange={sameAddressHandler}
+          id={`dependent ${dependent.dependentId}`}
+        />
         <AddressSection
           addressLine1={dependent.addressLine1}
           addressLine2={dependent.addressLine2}
