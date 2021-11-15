@@ -56,7 +56,7 @@ const AddDependent = (props) => {
     //copy the current dependent
     const currentDependent = { ...dependent };
     //update the phoneNumber
-    currentDependent.phoneNumber = event.target.value;
+    currentDependent.phoneNumber = Number(event.target.value);
     //update the parent state's dependent data with this new value
     updateDependentHandler(currentDependent);
   };
@@ -106,7 +106,7 @@ const AddDependent = (props) => {
     //copy the current dependent
     const currentDependent = { ...dependent };
     //update the zip
-    currentDependent.zip = event.target.value;
+    currentDependent.zip = Number(event.target.value);
     //update the parent state's dependent data with this new value
     updateDependentHandler(currentDependent);
   };

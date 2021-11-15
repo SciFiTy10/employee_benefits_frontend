@@ -533,15 +533,7 @@ const AddEmployeeDialog = () => {
       return;
     }
 
-    //clear to submit!
-    //(works if we use data: {employee: employee})
-    //update datatypes
-    employee.phoneNumber = Number(employee.phoneNumber);
-    employee.zip = Number(employee.zip);
-    employee.dependents.forEach((dependent) => {
-      dependent.phoneNumber = Number(dependent.phoneNumber);
-      dependent.zip = Number(dependent.zip);
-    });
+    //submit the employee data
     axios({
       method: "post",
       headers: {
@@ -600,7 +592,7 @@ const AddEmployeeDialog = () => {
     //copy the current employee state
     const currentEmployee = { ...employee };
     //update the phone number value
-    currentEmployee.phoneNumber = event.target.value;
+    currentEmployee.phoneNumber = Number(event.target.value);
     //update the state
     setEmployee(currentEmployee);
   };
@@ -645,7 +637,7 @@ const AddEmployeeDialog = () => {
     //copy the current employee state
     const currentEmployee = { ...employee };
     //update the phone number value
-    currentEmployee.zip = event.target.value;
+    currentEmployee.zip = Number(event.target.value);
     //update the state
     setEmployee(currentEmployee);
   };
