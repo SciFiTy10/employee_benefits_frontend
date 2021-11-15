@@ -33,6 +33,19 @@ const AddEmployeeDialog = () => {
   const closeDialogHandler = () => {
     ctx.addEmployeeDialogHandler(false);
   };
+  //handler for updating a given dependent
+  const updateDependentHandler = (updatedDependent) => {
+    //copy the existing state
+    const currentEmployee = { ...employee };
+    //find the current dependent
+    const currentDependentIndex = currentEmployee.dependents.findIndex(
+      (dependent) => dependent.dependentId === updatedDependent.dependentId
+    );
+    //update the currentDependent's info
+    currentEmployee.dependents[currentDependentIndex] = updatedDependent;
+    //update the state
+    setEmployee(currentEmployee);
+  };
   //handler for showing the add dependent fields
   const addDependentHandler = () => {
     //double check that there aren't any missing fields first
@@ -49,12 +62,12 @@ const AddEmployeeDialog = () => {
       firstName: "",
       lastName: "",
       email: "",
-      phoneNumber: 0,
+      phoneNumber: null,
       addressLine1: "",
       addressLine2: "",
       city: "",
       state: "",
-      zip: 0,
+      zip: null,
     });
     //update the state
     setEmployee(currentEmployee);
@@ -148,6 +161,10 @@ const AddEmployeeDialog = () => {
       //break execution
       return;
     }
+    //validation code to query for missing data amongst dependents
+    //something like .find for each field above
+    //also can't have anything like 2 spouses listed as dependents
+    //so need a validation case for that
   };
   //handler for setting the firstName
   const firstNameHandler = (event) => {
@@ -263,7 +280,11 @@ const AddEmployeeDialog = () => {
             id="employee"
           />
           {employee.dependents.map((dependent) => (
-            <AddDependent key={dependent.dependentId} dependent={dependent} />
+            <AddDependent
+              key={dependent.dependentId}
+              dependent={dependent}
+              updateDependentHandler={updateDependentHandler}
+            />
           ))}
           <ActionSection>
             <div className={actionStyles.close}>
