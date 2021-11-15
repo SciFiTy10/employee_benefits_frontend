@@ -349,10 +349,188 @@ const AddEmployeeDialog = () => {
       //break execution
       return;
     }
-    //validation code to query for missing data amongst dependents
-    //something like .find for each field above
-    //also can't have anything like 2 spouses listed as dependents
-    //so need a validation case for that
+
+    //check to ensure there aren't any dependents with missing dependentType
+    const missingDependentType = employee.dependents.find(
+      (dependent) => dependent.dependentType === ""
+    );
+    if (missingDependentType !== undefined) {
+      //send an alert for this to be addressed
+      alert.message = `Please select a dependent type for ${
+        missingDependentType.firstName !== ""
+          ? missingDependentType.firstName
+          : `dependent ${missingDependentType.dependentId}`
+      }.`;
+      ctx.alertHandler(alert);
+      //stop execution of the method
+      return;
+    }
+    //check to ensure there aren't any dependents with missing first name
+    const missingFirstName = employee.dependents.find(
+      (dependent) => dependent.firstName === ""
+    );
+    if (missingFirstName !== undefined) {
+      //send an alert for this to be addressed
+      alert.message = `Please select a first name for dependent ${missingFirstName.dependentId}.`;
+      ctx.alertHandler(alert);
+      //stop execution of the method
+      return;
+    }
+    //check to ensure there aren't any dependents with missing last name
+    const missingLastName = employee.dependents.find(
+      (dependent) => dependent.lastName === ""
+    );
+    if (missingLastName !== undefined) {
+      //send an alert for this to be addressed
+      alert.message = `Please select a last name for ${
+        missingLastName.firstName !== ""
+          ? missingLastName.firstName
+          : `dependent ${missingLastName.dependentId}`
+      }.`;
+      ctx.alertHandler(alert);
+      //stop execution of the method
+      return;
+    }
+    //check to ensure there aren't any dependents with missing email
+    const missingEmail = employee.dependents.find(
+      (dependent) => dependent.email === ""
+    );
+    if (missingEmail !== undefined) {
+      //send an alert for this to be addressed
+      alert.message = `Please select an email for ${
+        missingEmail.firstName !== ""
+          ? missingEmail.firstName
+          : `dependent ${missingEmail.dependentId}`
+      }.`;
+      ctx.alertHandler(alert);
+      //stop execution of the method
+      return;
+    }
+    //check to ensure there aren't any dependents with invalid email
+    const invalidEmail = employee.dependents.find(
+      (dependent) =>
+        dependent.email.length > 0 &&
+        new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(
+          dependent.email
+        ) === false
+    );
+    if (invalidEmail !== undefined) {
+      //send an alert for this to be addressed
+      alert.message = `Please select a valid email for ${
+        invalidEmail.firstName !== ""
+          ? invalidEmail.firstName
+          : `dependent ${invalidEmail.dependentId}`
+      }. Ex: test@gmail.com`;
+      ctx.alertHandler(alert);
+      //stop execution of the method
+      return;
+    }
+    //check to ensure there aren't any dependents with missing phoneNumber
+    const missingPhoneNumber = employee.dependents.find(
+      (dependent) =>
+        dependent.phoneNumber === null || dependent.phoneNumber === ""
+    );
+    if (missingPhoneNumber !== undefined) {
+      //send an alert for this to be addressed
+      alert.message = `Please select a phone number for ${
+        missingPhoneNumber.firstName !== ""
+          ? missingPhoneNumber.firstName
+          : `dependent ${missingPhoneNumber.dependentId}`
+      }.`;
+      ctx.alertHandler(alert);
+      //stop execution of the method
+      return;
+    }
+    //check to ensure there aren't any dependents with an invalid phoneNumber
+    const invalidPhoneNumber = employee.dependents.find(
+      (dependent) => dependent.phoneNumber.toString().length !== 10
+    );
+    if (invalidPhoneNumber !== undefined) {
+      //send an alert for this to be addressed
+      alert.message = `Please select a phone number with 10 digits for ${
+        invalidPhoneNumber.firstName !== ""
+          ? invalidPhoneNumber.firstName
+          : `dependent ${invalidPhoneNumber.dependentId}`
+      }. Ex: 8475551234`;
+      ctx.alertHandler(alert);
+      //stop execution of the method
+      return;
+    }
+    //check to ensure there aren't any dependents with missing addressLine1
+    const missingAddressLine1 = employee.dependents.find(
+      (dependent) => dependent.addressLine1 === ""
+    );
+    if (missingAddressLine1 !== undefined) {
+      //send an alert for this to be addressed
+      alert.message = `Please select an address line 1 for ${
+        missingAddressLine1.firstName !== ""
+          ? missingAddressLine1.firstName
+          : `dependent ${missingAddressLine1.dependentId}`
+      }.`;
+      ctx.alertHandler(alert);
+      //stop execution of the method
+      return;
+    }
+    //check to ensure there aren't any dependents with missing city
+    const missingCity = employee.dependents.find(
+      (dependent) => dependent.city === ""
+    );
+    if (missingCity !== undefined) {
+      //send an alert for this to be addressed
+      alert.message = `Please select a city for ${
+        missingCity.firstName !== ""
+          ? missingCity.firstName
+          : `dependent ${missingCity.dependentId}`
+      }.`;
+      ctx.alertHandler(alert);
+      //stop execution of the method
+      return;
+    }
+    //check to ensure there aren't any dependents with missing state
+    const missingState = employee.dependents.find(
+      (dependent) => dependent.state === ""
+    );
+    if (missingState !== undefined) {
+      //send an alert for this to be addressed
+      alert.message = `Please select a state for ${
+        missingState.firstName !== ""
+          ? missingState.firstName
+          : `dependent ${missingState.dependentId}`
+      }. Ex: Illinois`;
+      ctx.alertHandler(alert);
+      //stop execution of the method
+      return;
+    }
+    //check to ensure there aren't any dependents with missing zip
+    const missingZip = employee.dependents.find(
+      (dependent) => dependent.zip === null || dependent.zip === ""
+    );
+    if (missingZip !== undefined) {
+      //send an alert for this to be addressed
+      alert.message = `Please select a zip code for ${
+        missingZip.firstName !== ""
+          ? missingZip.firstName
+          : `dependent ${missingZip.dependentId}`
+      }. Ex: 60123`;
+      ctx.alertHandler(alert);
+      //stop execution of the method
+      return;
+    }
+    //check to ensure there aren't any dependents with an invalid zip
+    const invalidZip = employee.dependents.find(
+      (dependent) => dependent.zip.toString().length !== 5
+    );
+    if (invalidZip !== undefined) {
+      //send an alert for this to be addressed
+      alert.message = `Please select a zip code with 5 digits for ${
+        invalidZip.firstName !== ""
+          ? invalidZip.firstName
+          : `dependent ${invalidZip.dependentId}`
+      }. Ex: 60123`;
+      ctx.alertHandler(alert);
+      //stop execution of the method
+      return;
+    }
   };
   //handler for setting the firstName
   const firstNameHandler = (event) => {
