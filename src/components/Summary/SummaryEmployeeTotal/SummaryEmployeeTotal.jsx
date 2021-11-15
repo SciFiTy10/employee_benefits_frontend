@@ -7,7 +7,7 @@ const SummaryEmployeeTotal = (props) => {
   //grab the employee's dependents
   const { dependents } = employee;
   return (
-    <section>
+    <section className={summaryEmployeeTotalStyles.summaryEmployeeTotal}>
       <SummaryHeader text="Employee Total" />
       <article>
         <div className={summaryEmployeeTotalStyles.totalPerCheck}>

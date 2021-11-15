@@ -550,6 +550,8 @@ const AddEmployeeDialog = () => {
         });
         //set the new employee list state
         ctx.employeeListAddHandler(response.data);
+        //close the dialog
+        closeDialogHandler();
       })
       .catch((error) => {
         //display the error

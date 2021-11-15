@@ -12,13 +12,13 @@ const EmployeeList = () => {
     <div className={employeeListStyles.employeeList}>
       {ctx.employeeList.employees.map((employee) => {
         return (
-          <>
+          <div className={employeeListStyles.employeeRow}>
             <Employee key={employee.employeeId} employee={employee} />
             {employee.dependents.length > 0 ? (
               <DependentList dependents={employee.dependents} />
             ) : null}
             <SummaryEmployeeTotal employee={employee} />
-          </>
+          </div>
         );
       })}
     </div>

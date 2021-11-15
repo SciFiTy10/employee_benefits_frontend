@@ -11,7 +11,6 @@ const SummaryGrandTotal = (props) => {
       <div className={summaryGrandTotalStyles.grandTotal}>
         <span>Per Year: ${props.grandTotalPerYear}</span>
       </div>
-      <hr />
     </section>
   );
 };
