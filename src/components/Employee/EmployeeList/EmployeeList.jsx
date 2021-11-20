@@ -12,8 +12,11 @@ const EmployeeList = () => {
     <div className={employeeListStyles.employeeList}>
       {ctx.employeeList.employees.map((employee) => {
         return (
-          <div className={employeeListStyles.employeeRow}>
-            <Employee key={employee.employeeId} employee={employee} />
+          <div
+            key={employee.employeeId}
+            className={employeeListStyles.employeeRow}
+          >
+            <Employee employee={employee} />
             {employee.dependents.length > 0 ? (
               <DependentList dependents={employee.dependents} />
             ) : null}
